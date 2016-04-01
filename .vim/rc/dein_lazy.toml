@@ -1,0 +1,95 @@
+
+[[plugins]]
+repo      = 'Shougo/neomru.vim'
+on_source = ['unite.vim']
+
+[[plugins]]
+repo   = 'Shougo/vimshell.vim'
+on_cmd = [
+    'VimShell',
+    'VimShellPop',
+    ]
+hook_source = '''
+    source ~/.vim/rc/plugins/vimshell.rc.vim
+'''
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+hook_source = '''
+    let g:neocomplete#enable_at_startup = 1
+    source ~/.vim/rc/plugins/neocomplete.rc.vim
+'''
+
+[[plugins]]
+repo     = 'Shougo/neosnippet'
+on_i     = 1
+hook_source = '''
+    source ~/.vim/rc/plugins/neosnippet.rc.vim
+'''
+
+[[plugins]]
+repo      = 'Shougo/neosnippet-snippets'
+on_source = 'neosnippet'
+
+[[plugins]]
+repo     = 'thinca/vim-quickrun'
+on_cmd   = ['QuickRun',]
+hook_source = '''
+    source ~/.vim/rc/plugins/quickrun.rc.vim
+'''
+
+[[plugins]]
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo   = 'majutsushi/tagbar'
+on_cmd = ['TagbarToggle',]
+
+[[plugins]]
+repo  = 'davidhalter/jedi-vim'
+on_ft = [
+    'python',
+    'python3',
+    'djangohtml',
+    ]
+
+hook_source = '''
+    source ~/.vim/rc/plugins/jedi.rc.vim
+'''
+
+    [plugins.build]
+    mac  = 'pip install jedi'
+    unix = 'pip install jedi'
+
+[[plugins]]
+repo   = 'sjl/gundo.vim'
+on_cmd = ['GundoToggle',]
+
+[[plugins]]
+repo  = 'plasticboy/vim-markdown'
+on_ft = ['markdown',]
+
+[[plugins]]
+repo   = 'kannokanno/previm'
+on_cmd = ['PrevimOpen',]
+gui    = 1
+
+[[plugins]]
+repo   = 'tyru/open-browser.vim'
+on_cmd = ['OpenBrowser',]
+gui    = 1
+
+[[plugins]]
+repo   = 'kakkyz81/evervim'
+on_cmd = [
+    'EvervimCreateNote',
+    'EvervimOpenBrowser',
+    'EvervimNotebookList',
+    'EvervimSearchByQuery',
+    ]
+hook_source = '''
+    source ~/.vim/rc/plugins/evervim.rc.vim
+'''
+
