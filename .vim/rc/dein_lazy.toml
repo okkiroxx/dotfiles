@@ -48,6 +48,14 @@ repo   = 'majutsushi/tagbar'
 on_cmd = ['TagbarToggle',]
 
 [[plugins]]
+repo = 'lambdalisue/vim-django-support'
+on_ft = [
+    'python',
+    'python3',
+    'djangohtml',
+    ]
+
+[[plugins]]
 repo  = 'davidhalter/jedi-vim'
 on_ft = [
     'python',
@@ -62,6 +70,25 @@ hook_source = '''
     [plugins.build]
     mac  = 'pip install jedi'
     unix = 'pip install jedi'
+
+[[plugins]]
+repo = 'jmcantrell/vim-virtualenv'
+if = '''! has('mac')'''
+on_ft = [
+    'python',
+    'python3',
+    'djangohtml',
+    ]
+
+[[plugins]]
+repo = 'lambdalisue/vim-pyenv'
+if = '''has('mac')'''
+depends = 'jedi-vim'
+on_ft = [
+    'python',
+    'python3',
+    'djangohtml',
+    ]
 
 [[plugins]]
 repo   = 'sjl/gundo.vim'
