@@ -7,7 +7,11 @@
 let g:lightline = {
     \ 'colorscheme': 'landscape',
     \ 'active': {
-    \   'left': [ ['mode', 'paste'], [ 'fugitive', 'filename' ] ]
+    \   'left': [
+    \       [ 'mode', 'paste' ],
+    \       [ 'virtualenv', 'pyenv' ],
+    \       [ 'fugitive', 'filename' ]
+    \       ]
     \   },
     \ 'component_function': {
     \   'modified': 'LightLineModified',
@@ -18,6 +22,8 @@ let g:lightline = {
     \   'filetype': 'LightLineFiletype',
     \   'fileencoding': 'LightLineFileencoding',
     \   'mode': 'LightLineMode',
+    \   'virtualenv': 'virtualenv#statusline',
+    \   'pyenv': 'pyenv#statusline#component',
     \   },
     \ }
 
