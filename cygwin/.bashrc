@@ -220,6 +220,6 @@ alias ifconfig='wincmd ipconfig'
 alias tracert='wincmd tracert'
 
 source ~/.git-prompt.sh
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]$(__git_ps1 " (%s)")\n\$ '
+PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\033[36m\]$(__git_ps1 " (%s)")\[\033[0m\]\n\$ '
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
 
