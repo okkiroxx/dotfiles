@@ -13,6 +13,19 @@ if   = '''! has('kaoriya')'''
     unix    = 'gmake -f make_unix.mak'
 
 [[plugins]]
+repo     = 'Shougo/vimfiler'
+depends  = 'unite.vim'
+hook_add = '''
+    source ~/.vim/rc/plugins/vimfiler.rc.vim
+'''
+
+[[plugins]]
+repo     = 'Shougo/unite.vim'
+hook_add = '''
+    source ~/.vim/rc/plugins/unite.rc.vim
+'''
+
+[[plugins]]
 repo     = 'itchyny/lightline.vim'
 hook_add = '''
     source ~/.vim/rc/plugins/lightline.rc.vim
