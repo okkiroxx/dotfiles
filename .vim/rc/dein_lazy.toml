@@ -1,26 +1,5 @@
 
 [[plugins]]
-repo     = 'Shougo/vimfiler'
-depends  = 'unite.vim'
-on_cmd = [
-    'VimFiler',
-    'VimFilerExplorer',
-    ]
-hook_source = '''
-    source ~/.vim/rc/plugins/vimfiler.rc.vim
-'''
-
-[[plugins]]
-repo     = 'Shougo/unite.vim'
-on_cmd = [
-    'Unite',
-    'UniteWithBufferDir',
-    ]
-hook_source = '''
-    source ~/.vim/rc/plugins/unite.rc.vim
-'''
-
-[[plugins]]
 repo      = 'Shougo/neomru.vim'
 on_source = ['unite.vim']
 
