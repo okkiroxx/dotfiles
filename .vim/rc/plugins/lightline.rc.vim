@@ -9,8 +9,7 @@ let g:lightline = {
     \ 'active': {
     \   'left': [
     \       [ 'mode', 'paste' ],
-    \       [ 'virtualenv', 'pyenv' ],
-    \       [ 'fugitive', 'filename' ]
+    \       [ 'fugitive', 'virtualenv', 'pyenv', 'filename' ],
     \       ]
     \   },
     \ 'component_function': {
