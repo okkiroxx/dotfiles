@@ -1,6 +1,6 @@
 " lightline
 
-" コピペ用
+" コピペ用シンボル
 " Windows ⭠ ⭤ ⮀ ⮁ ⮂ ⮃
 " unix         
 
