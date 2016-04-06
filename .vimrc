@@ -25,6 +25,9 @@ endfunction
 if has('mac')
     call IncludePath(expand("~/.pyenv/shims"))
 endif
+
+autocmd FileType python setlocal completeopt-=preview
+
 "}}}
 
 "---------- プラグイン "{{{
