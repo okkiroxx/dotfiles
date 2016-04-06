@@ -59,6 +59,7 @@ on_ft = [
 
 [[plugins]]
 repo  = 'davidhalter/jedi-vim'
+depends = 'neocomplete.vim'
 on_ft = [
     'python',
     'python3',
