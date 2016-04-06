@@ -25,7 +25,3 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "spaceキーではすぐにスペースを打ちたいのでコメントアウト
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType python3 setlocal omnifunc=jedi#completions
-autocmd FileType htmldjango setlocal omnifunc=jedi#completions
-
