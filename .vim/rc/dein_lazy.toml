@@ -53,7 +53,7 @@ repo = 'lambdalisue/vim-django-support'
 on_ft = [
     'python',
     'python3',
-    'djangohtml',
+    'htmldjango',
     ]
 
 [[plugins]]
@@ -61,7 +61,7 @@ repo  = 'davidhalter/jedi-vim'
 on_ft = [
     'python',
     'python3',
-    'djangohtml',
+    'htmldjango',
     ]
 
 hook_source = '''
@@ -78,7 +78,7 @@ if = '''! has('mac')'''
 on_ft = [
     'python',
     'python3',
-    'djangohtml',
+    'htmldjango',
     ]
 
 [[plugins]]
@@ -88,7 +88,7 @@ depends = 'jedi-vim'
 on_ft = [
     'python',
     'python3',
-    'djangohtml',
+    'dhtmljango',
     ]
 
 [[plugins]]
