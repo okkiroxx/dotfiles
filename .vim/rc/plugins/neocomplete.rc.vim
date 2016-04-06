@@ -6,8 +6,8 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-let g:neocomplete#force_omi_input_patterns = {}
-let g:neocomplete#force_omi_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+"let g:neocomplete#force_omi_input_patterns = {}
+"let g:neocomplete#force_omi_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 "inoremap <expr><C-g>    neocomplete#undo_dompletion()
 "inoremap <expr><C-l>    neocomplete#complete_common_string()
@@ -23,7 +23,7 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "spaceキーではすぐにスペースを打ちたいのでコメントアウト
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
 
-autocmd FileType python setlocal omnifunc=jedi#completions
-autocmd FileType python3 setlocal omnifunc=jedi#completions
-autocmd FileType htmldjango setlocal omnifunc=jedi#completions
+"autocmd FileType python setlocal omnifunc=jedi#completions
+"autocmd FileType python3 setlocal omnifunc=jedi#completions
+"autocmd FileType htmldjango setlocal omnifunc=jedi#completions
 
