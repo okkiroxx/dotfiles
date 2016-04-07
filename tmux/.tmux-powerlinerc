@@ -126,7 +126,7 @@
 	export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
 	# Name of GNU grep binary if in PATH, or path to it.
     if [ "$(uname)" == 'Darwin' ]; then
-        export TMUX_POWERLINE_SEG_WEATHER_GREP="/usr/local/Cellar/grep/2.23/bin/ggrep"
+        export TMUX_POWERLINE_SEG_WEATHER_GREP="/usr/local/bin/ggrep"
     else
         export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
     fi
