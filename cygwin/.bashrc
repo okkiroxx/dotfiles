@@ -223,4 +223,4 @@ alias tracert='wincmd tracert'
 source ~/.git-prompt.sh
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\033[36m\]$(__git_ps1 " (%s)")\[\033[0m\]\n\$ '
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
-
+PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
