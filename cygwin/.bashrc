@@ -220,7 +220,18 @@ alias ifconfig='wincmd ipconfig'
 #alias telnet='wincmd telnet'
 alias tracert='wincmd tracert'
 
+# virtualenv
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/bin/virtualenvwrapper.sh
+fi
+
+# プロンプト変更
+
+# git
 source ~/.git-prompt.sh
-PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\033[36m\]$(__git_ps1 " (%s)")\[\033[0m\]\n\$ '
+PS1='\[\e]0;\w\a\]\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\]\[\033[36m\]$(__git_ps1 " (%s)")\[\033[0m\]\n\$ '
 #PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
+# tmux用
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
