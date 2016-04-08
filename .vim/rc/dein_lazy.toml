@@ -90,7 +90,7 @@ depends = 'jedi-vim'
 on_ft = [
     'python',
     'python3',
-    'dhtmljango',
+    'htmldjango',
     ]
 
 [[plugins]]
