@@ -83,8 +83,10 @@
 # }
 
 # now_playing.sh {
-	# Music player to use. Can be any of {audacious, banshee, cmus, itunes, lastfm, mocp, mpd, mpd_simple, pithos, rdio, rhythmbox, spotify, spotify_wine}.
+	# Music player to use. Can be any of {audacious, banshee, cmus, itunes, lastfm, mocp, mpd, mpd_simple, pithos, rdio, rhythmbox, spotify, spotify_wine, file}.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MUSIC_PLAYER=""
+	# File to be read in case the song is being read from a file
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_FILE_NAME=""
 	# Maximum output length.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MAX_LEN="40"
 	# How to handle too long strings. Can be {trim, roll}.
@@ -98,6 +100,8 @@
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MPD_PORT="6600"
 	# Song display format for mpd_simple. See mpc(1) for delimiters.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_MPD_SIMPLE_FORMAT="%artist% - %title%"
+	# Song display format for rhythmbox. see "FORMATS" in rhythmbox-client(1).
+	export TMUX_POWERLINE_SEG_NOW_PLAYING_RHYTHMBOX_FORMAT="%aa - %tt"
 	
 	# Username for Last.fm if that music player is used.
 	export TMUX_POWERLINE_SEG_NOW_PLAYING_LASTFM_USERNAME=""
