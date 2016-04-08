@@ -1,4 +1,4 @@
-# Default configuration file for tmux-powerline.
+-e # Default configuration file for tmux-powerline.
 # Modeline {
 #	 vi: foldmarker={,} foldmethod=marker foldlevel=0 tabstop=4 filetype=sh
 # }
@@ -71,7 +71,7 @@
 	
 	## Maildir
 	# Path to the maildir to check.
-	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="/home/okinami/.mail/inbox/new"
+	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILDIR_INBOX="/Users/yusuke/.mail/inbox/new"
 	
 	## mbox
 	# Path to the mbox to check.
@@ -79,7 +79,7 @@
 	
 	## mailcheck
 	# Optional path to mailcheckrc
-	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="/home/okinami/.mailcheckrc"
+	export TMUX_POWERLINE_SEG_MAILCOUNT_MAILCHECKRC="/Users/yusuke/.mailcheckrc"
 # }
 
 # now_playing.sh {
@@ -139,5 +139,5 @@
 	# 1. Go to Yahoo weather http://weather.yahoo.com/
 	# 2. Find the weather for you location
 	# 3. Copy the last numbers in that URL. e.g. "http://weather.yahoo.com/united-states/california/newport-beach-12796587/" has the numbers "12796587"
-	export TMUX_POWERLINE_SEG_WEATHER_LOCATION="15015370"
+	export TMUX_POWERLINE_SEG_WEATHER_LOCATION="1118083"
 # }
