@@ -8,9 +8,9 @@ if   = '''! has('kaoriya')'''
     [plugins.build]
     windows = 'make -f make_mingw64.mak'
     cygwin  = 'make -f make_cygwin.mak'
-    mac     = 'make -f make_mac.mak'
-    linux   = 'make -f make_unix.mak'
-    unix    = 'gmake -f make_unix.mak'
+    mac     = 'make'
+    linux   = 'make'
+    unix    = 'gmake'
 
 [[plugins]]
 repo     = 'Shougo/vimfiler'
