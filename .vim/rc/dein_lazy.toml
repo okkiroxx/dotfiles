@@ -48,14 +48,14 @@ on_ft = 'toml'
 repo   = 'majutsushi/tagbar'
 on_cmd = ['TagbarToggle',]
 
-[[plugins]]
-repo = 'lambdalisue/vim-django-support'
-if = '''! has('win32') || ! has('win32unix')'''
-on_ft = [
-    'python',
-    'python3',
-    'htmldjango',
-    ]
+#[[plugins]]
+#repo = 'lambdalisue/vim-django-support'
+#if = '''! has('win32') || ! has('win32unix')'''
+#on_ft = [
+#    'python',
+#    'python3',
+#    'htmldjango',
+#    ]
 
 [[plugins]]
 repo  = 'davidhalter/jedi-vim'
