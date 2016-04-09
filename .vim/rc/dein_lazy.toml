@@ -50,7 +50,7 @@ on_cmd = ['TagbarToggle',]
 
 [[plugins]]
 repo = 'lambdalisue/vim-django-support'
-if = '''! has('win32') || ! has('mac')'''
+if = '''! has('win32') || ! has('win32unix') || ! has('mac')'''
 on_ft = [
     'python',
     'python3',
