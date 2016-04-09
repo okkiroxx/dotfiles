@@ -92,6 +92,9 @@ on_ft = [
     'python3',
     'htmldjango',
     ]
+hook_source = '''
+    source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+'''
 
 [[plugins]]
 repo   = 'sjl/gundo.vim'
