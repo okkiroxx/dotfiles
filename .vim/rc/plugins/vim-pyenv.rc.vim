@@ -1,3 +1,5 @@
+" vim-pyenv
+
 if jedi#init_python()
     function! s:jedi_auto_force_py_version() abort
         let major_version = pyenv#python#get_internal_major_version()
