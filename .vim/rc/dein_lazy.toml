@@ -65,14 +65,13 @@ on_ft = [
     'python3',
     'htmldjango',
     ]
-
 hook_source = '''
     source ~/.vim/rc/plugins/jedi.rc.vim
 '''
-
-    [plugins.build]
-    mac  = 'pip install jedi'
-    unix = 'pip install jedi'
+hook_post_update = '''
+    let cmd = 'pip install jedi'
+    let g:dein#plugin.build = cmd
+'''
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
