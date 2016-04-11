@@ -11,6 +11,8 @@
 	# The theme to use.
     if [ "$(uname)" == 'Darwin' ]; then
         export TMUX_POWERLINE_THEME="mactheme"
+    elif [ "$(uname)" == 'CYGWIN_NT-10.0' ]; then
+        export TMUX_POWERLINE_THEME="cygtheme"
     else
         export TMUX_POWERLINE_THEME="mytheme"
     fi
