@@ -60,25 +60,25 @@ on_ft = [
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
-if = '''! has('mac')'''
+#if = '''! has('mac')'''
 on_ft = [
     'python',
     'python3',
     'htmldjango',
     ]
 
-[[plugins]]
-repo = 'lambdalisue/vim-pyenv'
-if = '''has('mac')'''
-depends = 'jedi-vim'
-on_ft = [
-    'python',
-    'python3',
-    'htmldjango',
-    ]
-hook_source = '''
-    source ~/.vim/rc/plugins/vim-pyenv.rc.vim
-'''
+#[[plugins]]
+#repo = 'lambdalisue/vim-pyenv'
+#if = '''has('mac')'''
+#depends = 'jedi-vim'
+#on_ft = [
+#    'python',
+#    'python3',
+#    'htmldjango',
+#    ]
+#hook_source = '''
+#    source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+#'''
 
 [[plugins]]
 repo  = 'davidhalter/jedi-vim'
