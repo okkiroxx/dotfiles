@@ -66,22 +66,6 @@ on_ft = [
     'htmldjango',
     ]
 
-[[plugins]]
-repo  = 'davidhalter/jedi-vim'
-depends = 'neocomplete.vim'
-on_ft = [
-    'python',
-    'python3',
-    'htmldjango',
-    ]
-hook_source = '''
-    source ~/.vim/rc/plugins/jedi.rc.vim
-'''
-hook_post_update = '''
-    let cmd = 'pip install jedi'
-    let g:dein#plugin.build = cmd
-'''
-
 #[[plugins]]
 #repo = 'lambdalisue/vim-pyenv'
 #if = '''has('mac')'''
@@ -94,6 +78,22 @@ hook_post_update = '''
 #hook_source = '''
 #    source ~/.vim/rc/plugins/vim-pyenv.rc.vim
 #'''
+
+[[plugins]]
+repo  = 'davidhalter/jedi-vim'
+#depends = 'neocomplete.vim'
+on_ft = [
+    'python',
+    'python3',
+    'htmldjango',
+    ]
+hook_source = '''
+    source ~/.vim/rc/plugins/jedi.rc.vim
+'''
+hook_post_update = '''
+    let cmd = 'pip install jedi'
+    let g:dein#plugin.build = cmd
+'''
 
 [[plugins]]
 repo   = 'sjl/gundo.vim'
