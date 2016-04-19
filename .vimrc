@@ -9,20 +9,22 @@ augroup END
 
 " Python補完用 "{{{
 
-function! IncludePath(path)
-    " define delimiter depends on platform
-    if has('win32') || has('win64')
-        let delimiter = ";"
-    else
-        let delimiter = ":"
-    endif
-    let pathlist = split($PATH, delimiter)
-    if isdirectory(a:path) && index(pathlist, a:path) == -1
-        let $PATH=a:path.delimiter.$PATH
-    endif
-endfunction
-
 if has('mac')
+    function! IncludePath(path)
+        " define delimiter depends on platform
+        "if has('win32') || has('win64')
+        "    let delimiter = ";"
+        "else
+        "    let delimiter = ":"
+        "endif
+        let delimiter = ":"
+
+        let pathlist = split($PATH, delimiter)
+        if isdirectory(a:path) && index(pathlist, a:path) == -1
+            let $PATH=a:path.delimiter.$PATH
+        endif
+    endfunction
+
     call IncludePath(expand("~/.pyenv/shims"))
 endif
 
