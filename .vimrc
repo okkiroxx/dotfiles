@@ -161,7 +161,8 @@ set undofile
 
 set virtualedit=block
 set mouse=a
-set shellslash
+"jediがinitエラーになるのでコメントアウト
+"set shellslash
 set history=1000
 
 set ambiwidth=
