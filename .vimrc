@@ -9,24 +9,10 @@ augroup END
 
 " Python補完用 "{{{
 
-"if has('mac')
-"    function! IncludePath(path)
-"        " define delimiter depends on platform
-"        "if has('win32') || has('win64')
-"        "    let delimiter = ";"
-"        "else
-"        "    let delimiter = ":"
-"        "endif
-"        let delimiter = ":"
-"
-"        let pathlist = split($PATH, delimiter)
-"        if isdirectory(a:path) && index(pathlist, a:path) == -1
-"            let $PATH=a:path.delimiter.$PATH
-"        endif
-"    endfunction
-"
-"    call IncludePath(expand("~/.pyenv/shims"))
-"endif
+if has('mac')
+    let $PYTHON_HOME=expand("/usr/local/var/pyenv/versions/3.5.1/Python.framework/Versions/3.5")
+    let &pythonthreedll=expand($PYTHON_HOME).'/Python'
+endif
 
 "}}}
 
