@@ -9,10 +9,10 @@ augroup END
 
 " Python補完用 "{{{
 
-"if has('mac')
-"    let $PYTHON_HOME=expand("/usr/local/var/pyenv/versions/3.5.1/Python.framework/Versions/3.5")
-"    let &pythonthreedll=expand($PYTHON_HOME).'/Python'
-"endif
+if has('mac')
+    let $PATH = "~/.pyenv/shims:".$PATH
+endif
+
 
 "}}}
 
