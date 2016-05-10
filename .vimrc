@@ -9,24 +9,10 @@ augroup END
 
 " Python補完用 "{{{
 
-"if has('mac')
-"    function! IncludePath(path)
-"        " define delimiter depends on platform
-"        "if has('win32') || has('win64')
-"        "    let delimiter = ";"
-"        "else
-"        "    let delimiter = ":"
-"        "endif
-"        let delimiter = ":"
-"
-"        let pathlist = split($PATH, delimiter)
-"        if isdirectory(a:path) && index(pathlist, a:path) == -1
-"            let $PATH=a:path.delimiter.$PATH
-"        endif
-"    endfunction
-"
-"    call IncludePath(expand("~/.pyenv/shims"))
-"endif
+if has('mac')
+    let $PATH = "~/.pyenv/shims:".$PATH
+endif
+
 
 "}}}
 
@@ -146,7 +132,7 @@ set smarttab
 
 set nowrap
 set backspace=indent,eol,start
-set scrolloff=8
+set scrolloff=4
 set sidescrolloff=16
 set sidescroll=1
 "set splitbelow
