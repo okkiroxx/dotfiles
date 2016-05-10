@@ -132,7 +132,7 @@ set smarttab
 
 set nowrap
 set backspace=indent,eol,start
-set scrolloff=8
+set scrolloff=4
 set sidescrolloff=16
 set sidescroll=1
 "set splitbelow
