@@ -220,6 +220,8 @@ alias ifconfig='wincmd ipconfig'
 #alias telnet='wincmd telnet'
 alias tracert='wincmd tracert'
 
+alias open='cygstart'
+
 # virtualenv
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=$HOME/.virtualenvs
