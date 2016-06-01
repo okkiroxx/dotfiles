@@ -22,7 +22,6 @@ if has('mac')
     let &pythondll = s:python2dll
     let $PYTHONHOME = s:python2home
     execute 'python import sys'
-
 endif
 
 
