@@ -94,6 +94,6 @@ function! LightLineMode()
 endfunction
 
 function! LightLinePyenv()
-    return pyenv#info#format('%av')
+    return pyenv#info#format('⌘%av')
 endfunction
 
