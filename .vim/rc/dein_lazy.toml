@@ -64,7 +64,7 @@ on_ft = [
 
 [[plugins]]
 repo = 'jmcantrell/vim-virtualenv'
-if = '''! has('mac')'''
+if = '''has('win32') || has('win32unix')'''
 on_ft = [
     'python',
     'python3',
@@ -73,7 +73,7 @@ on_ft = [
 
 [[plugins]]
 repo = 'lambdalisue/vim-pyenv'
-if = '''has('mac')'''
+if = '''! ( has('win32') || has('win32unix') )'''
 depends = 'jedi-vim'
 on_ft = [
     'python',
