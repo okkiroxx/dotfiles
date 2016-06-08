@@ -17,18 +17,18 @@ hook_post_update = '''
     let g:dein#plugin.build = cmd
 '''
 
-[[plugins]]
-repo     = 'Shougo/vimfiler'
-depends  = 'unite.vim'
-hook_add = '''
-    source ~/.vim/rc/plugins/vimfiler.rc.vim
-'''
-
-[[plugins]]
-repo     = 'Shougo/unite.vim'
-hook_add = '''
-    source ~/.vim/rc/plugins/unite.rc.vim
-'''
+#[[plugins]]
+#repo     = 'Shougo/vimfiler'
+#depends  = 'unite.vim'
+#hook_add = '''
+#    source ~/.vim/rc/plugins/vimfiler.rc.vim
+#'''
+#
+#[[plugins]]
+#repo     = 'Shougo/unite.vim'
+#hook_add = '''
+#    source ~/.vim/rc/plugins/unite.rc.vim
+#'''
 
 [[plugins]]
 repo     = 'itchyny/lightline.vim'

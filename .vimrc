@@ -3,9 +3,10 @@ if &compatible
 endif
 
 " release autogroup in MyAutoCmd
-augroup MyAutoCmd
-    autocmd!
-augroup END
+" Uniteでしか使ってなかったのでコメントアウト
+"augroup MyAutoCmd
+"    autocmd!
+"augroup END
 
 " Python補完用 "{{{
 
@@ -70,25 +71,25 @@ filetype plugin indent on
 "}}}
 
 "---------- キーマッピング "{{{
-"Unite
-nnoremap [unite] <Nop>
-nmap U [unite]
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [unite]w :<C-w>Unite window<CR>
-
-"<C-\>でVimFilerを左側に固定起動
-noremap <C-\> :VimFilerExplorer<CR>
-
-"折り返し行でも普通に移動出来るように
-nnoremap j gj
-nnoremap k gk
-
+""Unite
+"nnoremap [unite] <Nop>
+"nmap U [unite]
+"nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+"nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
+"nnoremap <silent> [unite]r :<C-u>Unite register<CR>
+"nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
+"nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
+"nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
+"nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
+"nnoremap <silent> [unite]w :<C-w>Unite window<CR>
+"
+""<C-\>でVimFilerを左側に固定起動
+"noremap <C-\> :VimFilerExplorer<CR>
+"
+""折り返し行でも普通に移動出来るように
+"nnoremap j gj
+"nnoremap k gk
+"
 "ESCを2回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :noh<CR>
 
@@ -167,8 +168,8 @@ set ambiwidth=
 "タグファイルは1個上のディレクトリも読む
 set tags=../tags,./tags,tags
 
-"autochdirがVimFilerとバッティングしたので、autocmdで
-autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
+""autochdirがVimFilerとバッティングしたので、autocmdで
+"autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
 "全角スペースの可視化
 autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("Error", '　')
 
