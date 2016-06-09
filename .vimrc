@@ -2,12 +2,6 @@ if &compatible
     set nocompatible
 endif
 
-" release autogroup in MyAutoCmd
-" Uniteでしか使ってなかったのでコメントアウト
-"augroup MyAutoCmd
-"    autocmd!
-"augroup END
-
 " Python補完用 "{{{
 
 if has('mac')
@@ -30,41 +24,85 @@ endif
 
 "---------- プラグイン "{{{
 
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~/.cache/dein')
-" dein.vim 本体
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if has('vim_starting')
+    set rtp+=~/.vim/plugged/vim-plug
+    if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+        echo 'install vim-plug...'
+        call system('mkdir -p ~/.vim/plugged/vim-plug')
+        if has('win32')
+            call system('git clone https://github.com/junegunn/vim-plug.git %homepath%/.vim/plugged/vim-plug/autoload')
+        else
+            call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+        endif
+    end
+endif
 
-" dein.vimがなければgithubから落としてくる
-if &runtimepath !~# '/dein.vim'
-    if !isdirectory(s:dein_repo_dir)
-        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+call plug#begin('~/.vim/plugged')
+    Plug 'junegunn/vim-plug',
+        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+
+    if !has('kaoriya')
+        Plug 'Shougo/vimporc.vim', { 'do': 'make' }
     endif
-    "execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-    let &runtimepath = s:dein_repo_dir .",". &runtimepath
-endif
 
-" 設定開始
-if dein#load_state(s:dein_dir)
-    " プラグインリストを収めたTOMLファイル
-    let s:toml      = '~/.vim/rc/dein.toml'
-    let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
+    Plug 'itchyny/lightline.vim'
+    source ~/.vim/rc/plugins/lightline.rc.vim
 
-    call dein#begin(s:dein_dir, [$MYVIMRC, s:toml, s:lazy_toml])
+    Plug 'nathanaelkane/vim-indent-guides'
+    source ~/.vim/rc/plugins/indent_guides.rc.vim
 
-    " TOMLを読込み、キャッシュしておく
-    call dein#load_toml(s:toml,      {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    Plug 'bronson/vim-trailing-whitespace'
 
-    " 設定終了
-    call dein#end()
-    call dein#save_state()
-endif
+    Plug 'lilydjwg/colorizer'
 
-" もし、未インストールのものがあればインストール
-if has('vim_starting') && dein#check_install()
-    call dein#install()
-endif
+    Plug 'jpo/vim-railscasts-theme'
+
+    Plug 'tpope/vim-fugitive'
+
+    Plug 'thinca/vim-quickrun', { 'on': ['QuickRun'] }
+    autocmd! User vim-quickrun source ~/.vim/rc/plugins/quickrun.rc.vim
+
+    Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
+
+    if ! ( has('win32') || has('win32unix') || has('mac') )
+        Plug 'lambdalisue/vim-django-support',
+            \ { 'for': ['python', 'python3', 'htmldjango'] }
+    endif
+
+    if has('win32') || has('win32unix')
+        Plug 'davidhalter/jedi-vim', {
+            \ 'for': ['python', 'python3', 'htmldjango'],
+            \ 'do': 'pip install jedi', }
+        \ | Plug 'jmcantrell/vim-virtualenv'
+        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+    else
+        Plug 'davidhalter/jedi-vim', {
+            \ 'for': ['python', 'python3', 'htmldjango'],
+            \ 'do': 'pip install jedi', }
+        \ | Plug 'lambdalisue/vim-pyenv'
+        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+        autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+    endif
+
+    Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
+    Plug 'kakkyz81/evervim', {
+        \ 'on': [
+        \   'EvervimCreateNote',
+        \   'EvervimOpenBrowser',
+        \   'EvervimNotebookList',
+        \   'EvervimSearchByQuery'] }
+    source ~/.vim/rc/plugins/evervim.rc.vim
+
+    if has('gui_running')
+        Plug 'tyru/open-browser.vim'
+        \ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
+    endif
+
+
+call plug#end()
 
 filetype plugin indent on
 
@@ -144,7 +182,7 @@ set smarttab
 
 set nowrap
 set backspace=indent,eol,start
-set scrolloff=4
+set scrolloff=3
 set sidescrolloff=16
 set sidescroll=1
 "set splitbelow
@@ -156,6 +194,7 @@ set undodir=~/.vim/undo
 set backupdir=~/.vim/backup
 "set directory=~/.vim/tmp
 set undofile
+set backup
 
 set virtualedit=block
 set mouse=a
