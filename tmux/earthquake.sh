@@ -93,7 +93,7 @@ __goo_earthquake() {
             # this is all that can be found for now
 
 			# we grab the data from the title of the first item (most recent earthquake)
-			earthquake_data=${earthquake_data#*item\><title>}
+			earthquake_data=${earthquake_data#*<item>}
 			# end our data at the end of the approx. time
 			earthquake_data=${earthquake_data%%頃*}
 
