@@ -19,7 +19,6 @@ if has('mac')
     execute 'python import sys'
 endif
 
-
 "}}}
 
 "---------- プラグイン "{{{
@@ -42,7 +41,11 @@ call plug#begin('~/.vim/plugged')
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
     if !has('kaoriya')
-        Plug 'Shougo/vimporc.vim', { 'do': 'make' }
+        if has('win32unix')
+            Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_cygwin.mak' }
+        else
+            Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+        endif
     endif
 
     Plug 'itchyny/lightline.vim'
@@ -70,16 +73,14 @@ call plug#begin('~/.vim/plugged')
     endif
 
     if has('win32') || has('win32unix')
-        Plug 'davidhalter/jedi-vim', {
-            \ 'for': ['python', 'python3', 'htmldjango'],
-            \ 'do': 'pip install jedi', }
-        \ | Plug 'jmcantrell/vim-virtualenv'
+        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        \ | Plug 'jmcantrell/vim-virtualenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
     else
-        Plug 'davidhalter/jedi-vim', {
-            \ 'for': ['python', 'python3', 'htmldjango'],
-            \ 'do': 'pip install jedi', }
-        \ | Plug 'lambdalisue/vim-pyenv'
+        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        \ | Plug 'lambdalisue/vim-pyenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
         autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
     endif
@@ -108,25 +109,7 @@ filetype plugin indent on
 "}}}
 
 "---------- キーマッピング "{{{
-""Unite
-"nnoremap [unite] <Nop>
-"nmap U [unite]
-"nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-"nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-"nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-"nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-"nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-"nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-"nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-"nnoremap <silent> [unite]w :<C-w>Unite window<CR>
-"
-""<C-\>でVimFilerを左側に固定起動
-"noremap <C-\> :VimFilerExplorer<CR>
-"
-""折り返し行でも普通に移動出来るように
-"nnoremap j gj
-"nnoremap k gk
-"
+
 "ESCを2回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :noh<CR>
 
@@ -210,7 +193,6 @@ set tags=../tags,./tags,tags
 "autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
 "全角スペースの可視化
 autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("Error", '　')
-
 
 syntax enable
 
