@@ -2,81 +2,113 @@ if &compatible
     set nocompatible
 endif
 
-" release autogroup in MyAutoCmd
-augroup MyAutoCmd
-    autocmd!
-augroup END
-
 " Python補完用 "{{{
 
 if has('mac')
-    let $PATH = "~/.pyenv/shims:".$PATH
-endif
+    let s:python2home = $PYENV_ROOT . '/versions/2.7.11'
+    let s:python2dll  = $PYENV_ROOT . '/versions/2.7.11/lib/libpython2.7.dylib'
+    let s:python3home = $PYENV_ROOT . '/versions/3.5.1'
+    let s:python3dll  = $PYENV_ROOT . '/versions/3.5.1/lib/libpython3.5m.dylib'
 
+    let &pythonthreedll = s:python3dll
+    let $PYTHONHOME = s:python3home
+    execute 'python3 import sys'
+
+    let &pythondll = s:python2dll
+    let $PYTHONHOME = s:python2home
+    execute 'python import sys'
+endif
 
 "}}}
 
 "---------- プラグイン "{{{
 
-" プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~/.cache/dein')
-" dein.vim 本体
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if has('vim_starting')
+    set rtp+=~/.vim/plugged/vim-plug
+    if !isdirectory(expand('~/.vim/plugged/vim-plug'))
+        echo 'install vim-plug...'
+        call system('mkdir -p ~/.vim/plugged/vim-plug')
+        if has('win32')
+            call system('git clone https://github.com/junegunn/vim-plug.git %homepath%/.vim/plugged/vim-plug/autoload')
+        else
+            call system('git clone https://github.com/junegunn/vim-plug.git ~/.vim/plugged/vim-plug/autoload')
+        endif
+    end
+endif
 
-" dein.vimがなければgithubから落としてくる
-if &runtimepath !~# '/dein.vim'
-    if !isdirectory(s:dein_repo_dir)
-        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+call plug#begin('~/.vim/plugged')
+    Plug 'junegunn/vim-plug',
+        \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
+
+    if !has('kaoriya')
+        if has('win32unix')
+            Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_cygwin.mak' }
+        else
+            Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+        endif
     endif
-    "execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
-    let &runtimepath = s:dein_repo_dir .",". &runtimepath
-endif
 
-" 設定開始
-if dein#load_state(s:dein_dir)
-    " プラグインリストを収めたTOMLファイル
-    let s:toml      = '~/.vim/rc/dein.toml'
-    let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
+    Plug 'itchyny/lightline.vim'
+    source ~/.vim/rc/plugins/lightline.rc.vim
 
-    call dein#begin(s:dein_dir, [$MYVIMRC, s:toml, s:lazy_toml])
+    Plug 'nathanaelkane/vim-indent-guides'
+    source ~/.vim/rc/plugins/indent_guides.rc.vim
 
-    " TOMLを読込み、キャッシュしておく
-    call dein#load_toml(s:toml,      {'lazy': 0})
-    call dein#load_toml(s:lazy_toml, {'lazy': 1})
+    Plug 'bronson/vim-trailing-whitespace'
 
-    " 設定終了
-    call dein#end()
-    call dein#save_state()
-endif
+    Plug 'lilydjwg/colorizer'
 
-" もし、未インストールのものがあればインストール
-if has('vim_starting') && dein#check_install()
-    call dein#install()
-endif
+    Plug 'jpo/vim-railscasts-theme'
+
+    Plug 'tpope/vim-fugitive'
+
+    Plug 'thinca/vim-quickrun', { 'on': ['QuickRun'] }
+    autocmd! User vim-quickrun source ~/.vim/rc/plugins/quickrun.rc.vim
+
+    Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
+
+    if ! ( has('win32') || has('win32unix') || has('mac') )
+        Plug 'lambdalisue/vim-django-support',
+            \ { 'for': ['python', 'python3', 'htmldjango'] }
+    endif
+
+    if has('win32') || has('win32unix')
+        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        \ | Plug 'jmcantrell/vim-virtualenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
+        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+    else
+        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        \ | Plug 'lambdalisue/vim-pyenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
+        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+        autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+    endif
+
+    Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+
+    Plug 'kakkyz81/evervim', {
+        \ 'on': [
+        \   'EvervimCreateNote',
+        \   'EvervimOpenBrowser',
+        \   'EvervimNotebookList',
+        \   'EvervimSearchByQuery'] }
+    source ~/.vim/rc/plugins/evervim.rc.vim
+
+    if has('gui_running')
+        Plug 'tyru/open-browser.vim'
+        \ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
+    endif
+
+call plug#end()
 
 filetype plugin indent on
 
 "}}}
 
 "---------- キーマッピング "{{{
-"Unite
-nnoremap [unite] <Nop>
-nmap U [unite]
-nnoremap <silent> [unite]f :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite buffer<CR>
-nnoremap <silent> [unite]r :<C-u>Unite register<CR>
-nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
-nnoremap <silent> [unite]c :<C-u>Unite bookmark<CR>
-nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
-nnoremap <silent> [unite]t :<C-u>Unite tab<CR>
-nnoremap <silent> [unite]w :<C-w>Unite window<CR>
-
-"<C-\>でVimFilerを左側に固定起動
-noremap <C-\> :VimFilerExplorer<CR>
-
-"折り返し行でも普通に移動出来るように
-nnoremap j gj
-nnoremap k gk
 
 "ESCを2回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :noh<CR>
@@ -132,7 +164,7 @@ set smarttab
 
 set nowrap
 set backspace=indent,eol,start
-set scrolloff=4
+set scrolloff=3
 set sidescrolloff=16
 set sidescroll=1
 "set splitbelow
@@ -144,6 +176,7 @@ set undodir=~/.vim/undo
 set backupdir=~/.vim/backup
 "set directory=~/.vim/tmp
 set undofile
+set backup
 
 set virtualedit=block
 set mouse=a
@@ -156,11 +189,10 @@ set ambiwidth=
 "タグファイルは1個上のディレクトリも読む
 set tags=../tags,./tags,tags
 
-"autochdirがVimFilerとバッティングしたので、autocmdで
-autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
+""autochdirがVimFilerとバッティングしたので、autocmdで
+"autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
 "全角スペースの可視化
 autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("Error", '　')
-
 
 syntax enable
 

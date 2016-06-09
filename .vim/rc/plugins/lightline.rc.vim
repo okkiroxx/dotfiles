@@ -22,7 +22,7 @@ let g:lightline = {
     \   'fileencoding': 'LightLineFileencoding',
     \   'mode': 'LightLineMode',
     \   'virtualenv': 'virtualenv#statusline',
-    \   'pyenv': 'pyenv#statusline#component',
+    \   'pyenv': 'LightLinePyenv',
     \   },
     \ }
 
@@ -91,4 +91,12 @@ function! LightLineMode()
                 \ &ft == 'vimfiler' ? 'VimFiler' :
                 \ &ft == 'vimshell' ? 'VimShell' :
                 \ winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightLinePyenv()
+    if ! ( has('win32') || has('win32unix') )
+        return pyenv#info#format('⌘%av')
+    else
+        return ""
+    endif
 endfunction
