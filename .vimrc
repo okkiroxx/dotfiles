@@ -101,7 +101,6 @@ call plug#begin('~/.vim/plugged')
         \ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
     endif
 
-
 call plug#end()
 
 filetype plugin indent on
