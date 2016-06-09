@@ -67,11 +67,6 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 
-    if ! ( has('win32') || has('win32unix') || has('mac') )
-        Plug 'lambdalisue/vim-django-support',
-            \ { 'for': ['python', 'python3', 'htmldjango'] }
-    endif
-
     if has('win32') || has('win32unix')
         Plug 'davidhalter/jedi-vim', {
             \ 'do': 'pip install jedi',
@@ -87,6 +82,11 @@ call plug#begin('~/.vim/plugged')
             \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
         autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+    endif
+
+    if ! ( has('win32') || has('win32unix') || has('mac') )
+        Plug 'lambdalisue/vim-django-support',
+            \ { 'for': ['python', 'python3', 'htmldjango'] }
     endif
 
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
