@@ -73,15 +73,19 @@ call plug#begin('~/.vim/plugged')
     endif
 
     if has('win32') || has('win32unix')
-        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        Plug 'davidhalter/jedi-vim', {
+            \ 'do': 'pip install jedi',
+            \ 'for': ['python', 'python3', 'htmldjango'] }
         \ | Plug 'jmcantrell/vim-virtualenv', {
             \ 'for': ['python', 'python3', 'htmldjango'] }
-        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+        autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     else
-        Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi' }
+        Plug 'davidhalter/jedi-vim', {
+            \ 'do': 'pip install jedi',
+            \ 'for': ['python', 'python3', 'htmldjango'] }
         \ | Plug 'lambdalisue/vim-pyenv', {
             \ 'for': ['python', 'python3', 'htmldjango'] }
-        autocmd! User jedi-vim source ~/.vim/rc/Plugins/jedi.rc.vim
+        autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
         autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
     endif
 
