@@ -4,7 +4,7 @@ scriptencoding utf-8
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 28-Apr-2016.
+" Last Change: 08-Jun-2016.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -195,6 +195,6 @@ elseif has('mac')
     autocmd FocusLost * set transparency=20
 endif
 
-autocmd VimEnter * VimFilerExplorer
+" autocmd VimEnter * VimFilerExplorer
 
 

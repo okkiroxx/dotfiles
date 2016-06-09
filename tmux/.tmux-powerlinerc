@@ -48,7 +48,7 @@
 	# Display time with this format
 	export TMUX_POWERLINE_SEG_EARTHQUAKE_TIME_FORMAT='(%H:%M)'
 	# Display only if magnitude is greater or equal to this number
-	export TMUX_POWERLINE_SEG_EARTHQUAKE_MIN_MAGNITUDE="3"
+	export TMUX_POWERLINE_SEG_EARTHQUAKE_MIN_MAGNITUDE="2"
 # }
 
 # hostname.sh {
