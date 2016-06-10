@@ -214,7 +214,7 @@ endif
 
 "CUI用のcolorscheme "{{{
 if has('win32')
-    colorscheme pablo
+    colorscheme default
 else
     colorscheme railscasts
     autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
