@@ -80,7 +80,7 @@ __goo_earthquake() {
 		time_now=$(date +%s)
 
 		up_to_date=$(echo "(${time_now}-${last_update}) < ${update_period}" | bc)
-		if [ "$up_to_date" == 1 ]; then
+		if [ "$up_to_date" -eq 1 ]; then
 			__read_tmp_file
 		fi
 	fi
@@ -93,9 +93,9 @@ __goo_earthquake() {
             # this is all that can be found for now
 
 			# we grab the data from the title of the first item (most recent earthquake)
-			earthquake_data=${earthquake_data#*<item>}
+			earthquake_data=${earthquake_data#*震源地}
 			# end our data at the end of the approx. time
-			earthquake_data=${earthquake_data%%頃*}
+			earthquake_data=${earthquake_data%%頃発生*}
 
 			# pluck our data
 			location=$(echo $earthquake_data | awk '{print $2}')
@@ -155,8 +155,7 @@ __convert_timestamp_to_fmt() {
 	if shell_is_osx ; then
 		timestamp_fmt=$(date -r "$timestamp" +"$TMUX_POWERLINE_SEG_EARTHQUAKE_TIME_FORMAT")
 	else
-        timestamp_unix="@"+$timestamp
-		timestamp_fmt=$(date -d "$timestamp_unix" +"$TMUX_POWERLINE_SEG_EARTHQUAKE_TIME_FORMAT")
+		timestamp_fmt=$(date -d @"$timestamp" +"$TMUX_POWERLINE_SEG_EARTHQUAKE_TIME_FORMAT")
 	fi
 }
 
