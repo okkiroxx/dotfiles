@@ -5,11 +5,11 @@ endif
 " Python補完用 "{{{
 
 if has('mac')
-    let $PYTHONHOME="/usr/local/var/pyenv/versions/2.7.11/"
-    set pythondll=/usr/local/var/pyenv/versions/2.7.11/lib/libpython2.7.dylib
+    let $PYTHONHOME=$HOME.".pyenv/versions/2.7.11"
+    set pythondll=$HOME/.pyenv/versions/2.7.11/lib/libpython2.7.dylib
     py import sys
-    let $PYTHONHOME="/usr/local/var/pyenv/versions/3.5.1"
-    set pythonthreedll=/usr/local/var/pyenv/versions/3.5.1/lib/libpython3.5m.dylib
+    let $PYTHONHOME=$HOME.".pyenv/versions/3.5.1"
+    set pythonthreedll=$HOME/.pyenv/versions/3.5.1/lib/libpython3.5m.dylib
     py3 import sys
 endif
 
