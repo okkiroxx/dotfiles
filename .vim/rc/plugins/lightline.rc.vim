@@ -32,17 +32,19 @@ if has('gui_running') && has('win32')
 elseif has('unix')
     let g:lightline['separator'] = {'left': "", 'right': ""}
     let g:lightline['subseparator'] = {'left': "", 'right': ""}
+    let s:readonly_str = ''
+    let s:fugitive_str = ' '
 endif
 
 function! LightLineModified()
-    return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+    return &ft =~ 'help\|nerdtree\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! LightLineReadonly()
     if has('gui_running') && has('win32')
-        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '⭤' : ''
+        return &ft !~? 'help\|nerdtree\|vimfiler\|gundo' && &readonly ? '⭤' : ''
     elseif has('unix')
-        return &ft !~? 'help\|vimfiler\|gundo' && &readonly ? '' : ''
+        return &ft !~? 'help\|nerdtree\|vimfiler\|gundo' && &readonly ? s:readonly_str : ''
     endif
 endfunction
 
@@ -60,12 +62,12 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFugitive()
-    if &ft !~? 'vimfiler\|gundo' && exists("*fugitive#head")
+    if &ft !~? 'nerdtree\|vimfiler\|gundo' && exists("*fugitive#head")
         let _ = fugitive#head()
         if has('gui_running') && has('win32')
             return strlen(_) ? '⭠ '._ : ''
         elseif has('unix')
-            return strlen(_) ? ' '._ : ''
+            return strlen(_) ? s:fugitive_str._ : ''
         endif
     endif
     return ''
