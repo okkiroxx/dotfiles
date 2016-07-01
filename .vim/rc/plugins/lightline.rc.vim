@@ -1,6 +1,6 @@
 " lightline
 
-" コピペ用シンボル
+" コピペ用
 " Windows ⭠ ⭤ ⮀ ⮁ ⮂ ⮃
 " unix         
 
@@ -29,11 +29,16 @@ let g:lightline = {
 if has('gui_running') && has('win32')
     let g:lightline['separator'] = {'left': "⮀", 'right': "⮂"}
     let g:lightline['subseparator'] = {'left': "⮁", 'right': "⮃"}
+    let s:readonly_str = '⭤'
+    let s:fugitive_str = '⭠ '
 elseif has('unix')
     let g:lightline['separator'] = {'left': "", 'right': ""}
     let g:lightline['subseparator'] = {'left': "", 'right': ""}
     let s:readonly_str = ''
     let s:fugitive_str = ' '
+else
+    let s:readonly_str = ''
+    let s:fugitive_str = ''
 endif
 
 function! LightLineModified()
@@ -41,11 +46,7 @@ function! LightLineModified()
 endfunction
 
 function! LightLineReadonly()
-    if has('gui_running') && has('win32')
-        return &ft !~? 'help\|nerdtree\|vimfiler\|gundo' && &readonly ? '⭤' : ''
-    elseif has('unix')
-        return &ft !~? 'help\|nerdtree\|vimfiler\|gundo' && &readonly ? s:readonly_str : ''
-    endif
+    return &ft !~? 'help\|nerdtree\|vimfiler\|gundo' && &readonly ? s:readonly_str : ''
 endfunction
 
 function! LightLineFilename()
@@ -64,11 +65,7 @@ endfunction
 function! LightLineFugitive()
     if &ft !~? 'nerdtree\|vimfiler\|gundo' && exists("*fugitive#head")
         let _ = fugitive#head()
-        if has('gui_running') && has('win32')
-            return strlen(_) ? '⭠ '._ : ''
-        elseif has('unix')
-            return strlen(_) ? s:fugitive_str._ : ''
-        endif
+        return strlen(_) ? s:fugitive_str._ : ''
     endif
     return ''
 endfunction
