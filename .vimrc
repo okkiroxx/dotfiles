@@ -100,6 +100,9 @@ call plug#begin('~/.vim/plugged')
         \ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
     endif
 
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    source ~/.vim/rc/plugins/nerdtree.rc.vim
+
 call plug#end()
 
 filetype plugin indent on
