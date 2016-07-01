@@ -52,8 +52,7 @@ endfunction
 function! LightLineFilename()
       let fname = expand('%:t')
         return fname == '__Tagbar__' ? fname :
-              \ fname =~ '__Gundo__' ? '' :
-              \ &ft == 'nerdtree' ? 'NERDTree' :
+              \ fname =~ '__Gundo\|NERD_tree' ? '' :
               \ &ft == 'vimfiler' ? vimfiler#get_status_string() :
               \ &ft == 'unite' ? unite#get_status_string() :
               \ &ft == 'vimshell' ? vimshell#get_status_string() :
@@ -88,7 +87,7 @@ function! LightLineMode()
                 \ fname == '__Gundo__' ? 'Gundo' :
                 \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
                 \ &ft == 'unite' ? 'Unite' :
-                \ &ft == 'nerdtree' ? '' :
+                \ &ft == 'nerdtree' ? 'NERDTree' :
                 \ &ft == 'vimshell' ? 'VimShell' :
                 \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
