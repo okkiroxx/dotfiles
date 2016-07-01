@@ -101,7 +101,6 @@ call plug#begin('~/.vim/plugged')
     endif
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    source ~/.vim/rc/plugins/nerdtree.rc.vim
 
 call plug#end()
 
@@ -128,6 +127,9 @@ noremap <Leader>t :TagbarToggle<CR>
 
 "\gでGundoToggle
 noremap <Leader>g :GundoToggle<CR>
+
+"ctrl+\でNERDTreeを起動
+nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
 "Evervim
 nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
