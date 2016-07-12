@@ -6,7 +6,7 @@
 
 setlocal iskeyword+=*,.,/,-
 
-syn match	yamahaNumber	"\(\s\|,\|=\|-\|\[\)\@<=[0-9]*\(\s\|,\|=\|\]\|$\)\@="
+syn match	yamahaNumber	"\(\s\|,\|=\|-\|\[\)\@<=[0-9]\+\(\s\|,\|=\|\]\|/\|$\)\@="
 syn match	yamahaString	\".*"\
 syn match	yamahaTime		"[0-9]\{1,2}:[0-9]\{1,2}"
 syn match	yamahaIPv4		"\d\{1,3}\.\d\{1,3}\.\d\{1,3}\.\d\{1,3}"
@@ -17,9 +17,13 @@ syn match	yamahaURL		"\(\S\+\.\)\{1,}\S\+"
 syn match	yamahaTunnel	"tunnel[0-9*]*"
 syn match	yamahaVlan		"vlan[0-9*]*"
 syn match	yamahaPP		"pp[0-9*]\+"
+syn match	yamahaBRI		"bri[0-9*]\+\(\.[1-9]\)*"
+syn match	yamahaPRI		"pri[0-9*]\+"
+syn match	yamahaBridge	"bridge[0-9*]\+"
 syn match	yamahaBind		"\(\s\|,\)\@<=[0-9]\+-[0-9]\+\(\s\|,\|$\)\@="
 syn match	yamahaSplitinto	"split-into-[1-9:]\+"
 syn match	yamahaPort		"\(tcp\|udp\)\/[0-9]\+"
+syn match	yamahaBandwidth	"\(\s\|=\|,\)\@<=[0-9]\+m"
 
 syn match	yamahaComment	"^#.*$"
 
@@ -33,19 +37,26 @@ syn keyword	yamahaBuiltin	admin
 syn keyword	yamahaBuiltin	aes-cbc
 syn keyword	yamahaBuiltin	all
 syn keyword	yamahaBuiltin	anonymous
+syn keyword	yamahaBuiltin	anti-replay-check
 syn keyword	yamahaBuiltin	any
 syn keyword	yamahaBuiltin	auth-error
 syn keyword	yamahaBuiltin	auto
+syn keyword	yamahaBuiltin	bandwidth
 syn keyword	yamahaBuiltin	call-waiting
 syn keyword	yamahaBuiltin	chap
+syn keyword	yamahaBuiltin	client
 syn keyword	yamahaBuiltin	connection
+syn keyword	yamahaBuiltin	control
 syn keyword	yamahaBuiltin	count
 syn keyword	yamahaBuiltin	default
 syn match	yamahaBuiltin	"\(^\s*\)\@!dhcp"
 syn match	yamahaBuiltin	"\(^\s*\)\@!dns"
 syn keyword	yamahaBuiltin	divide-network
+syn keyword	yamahaBuiltin	dhcpc
+syn keyword	yamahaBuiltin	dhcps
 syn keyword	yamahaBuiltin	domain
 syn keyword	yamahaBuiltin	dynamic
+syn keyword	yamahaBuiltin	economy
 syn keyword	yamahaBuiltin	enable
 syn keyword	yamahaBuiltin	esp
 syn keyword	yamahaBuiltin	established
@@ -55,23 +66,43 @@ syn keyword	yamahaBuiltin	fqdn
 syn keyword	yamahaBuiltin	ftp
 syn keyword	yamahaBuiltin	ftpdata
 syn keyword	yamahaBuiltin	ftpdata-21
+syn keyword	yamahaBuiltin	g711u
 syn keyword	yamahaBuiltin	gateway
 syn keyword	yamahaBuiltin	gre
+syn keyword	yamahaBuiltin	group
 syn keyword	yamahaBuiltin	heartbeat
+syn keyword	yamahaBuiltin	high
 syn keyword	yamahaBuiltin	host
 syn keyword	yamahaBuiltin	http
+syn keyword	yamahaBuiltin	https
+syn keyword	yamahaBuiltin	hybrid
 syn keyword	yamahaBuiltin	icmp
+syn keyword	yamahaBuiltin	icmp6
+syn keyword	yamahaBuiltin	icmp-echo
 syn keyword	yamahaBuiltin	ident
 syn keyword	yamahaBuiltin	ike
 syn keyword	yamahaBuiltin	in
+syn keyword	yamahaBuiltin	ir
+syn keyword	yamahaBuiltin	include
+syn keyword	yamahaBuiltin	ipudp
+syn match	yamahaBuiltin	"\(^\s*\|\S\)\@!ip"
 syn keyword	yamahaBuiltin	ipcp
+syn keyword	yamahaBuiltin	isdn-ntt
 syn keyword	yamahaBuiltin	isdn-terminal
+syn keyword	yamahaBuiltin	join
+syn keyword	yamahaBuiltin	keepalive
+syn keyword	yamahaBuiltin	key
 syn keyword	yamahaBuiltin	key-id
+syn keyword	yamahaBuiltin	l128
 syn match	yamahaBuiltin	"\(^\s*\)\@!l2tp"
+syn match	yamahaBuiltin	"\(^\s*\)\@!l2tpv3"
+syn match	yamahaBuiltin	"\(^\s*\)\@!l2tpv3-raw"
 syn match	yamahaBuiltin	"lan[1-9]*"
-syn match	yamahaBuiltin	"lan[1-9]\.[1-9]"
-syn keyword	yamahaBuiltin	line
+syn match	yamahaBuiltin	"lan[1-9]\(\.\|:\)[1-9]"
+syn match	yamahaBuiltin	"\(^\s*\)\@!line"
+syn keyword	yamahaBuiltin	linkdown-recovery
 syn keyword	yamahaBuiltin	local
+syn keyword	yamahaBuiltin	low
 syn keyword	yamahaBuiltin	masquerade
 syn keyword	yamahaBuiltin	md5-hmac
 syn keyword	yamahaBuiltin	mppe-any
@@ -83,13 +114,18 @@ syn keyword	yamahaBuiltin	netbios_ns-netbios_ssn
 syn keyword	yamahaBuiltin	netbios_ssn
 syn keyword	yamahaBuiltin	netbios_dgm
 syn keyword	yamahaBuiltin	netmeeting
+syn match	yamahaBuiltin	"\(^\s*\)\@!ngn"
 syn keyword	yamahaBuiltin	nntp
 syn keyword	yamahaBuiltin	none
 syn keyword	yamahaBuiltin	normal
+syn keyword	yamahaBuiltin	normal-number
 syn keyword	yamahaBuiltin	ntp
 syn keyword	yamahaBuiltin	ntpdate
+syn keyword	yamahaBuiltin	ntt
 syn keyword	yamahaBuiltin	off
+syn keyword	yamahaBuiltin	o_flag
 syn keyword	yamahaBuiltin	on
+syn keyword	yamahaBuiltin	ospf
 syn keyword	yamahaBuiltin	out
 syn keyword	yamahaBuiltin	pap
 syn keyword	yamahaBuiltin	pass
@@ -101,31 +137,51 @@ syn keyword	yamahaBuiltin	pool
 syn keyword	yamahaBuiltin	port
 syn match	yamahaBuiltin	"\(^\s*\)\@!pp\(\s\|$\)\@="
 syn match	yamahaBuiltin	"\(^\s*\)\@!pptp"
+syn keyword	yamahaBuiltin	precedence
 syn keyword	yamahaBuiltin	prefix
+syn keyword	yamahaBuiltin	priority
+syn keyword	yamahaBuiltin	primary
+syn match	yamahaBuiltin	"\(^\s*\)\@!provider"
+syn keyword	yamahaBuiltin	public
+syn keyword	yamahaBuiltin	recieve
 syn keyword	yamahaBuiltin	recursive
 syn keyword	yamahaBuiltin	reject
 syn keyword	yamahaBuiltin	reject-nolog
 syn keyword	yamahaBuiltin	remain-silent
 syn keyword	yamahaBuiltin	retry-interval
 syn keyword	yamahaBuiltin	restrict
+syn keyword	yamahaBuiltin	route
+syn keyword	yamahaBuiltin	route-table
 syn keyword	yamahaBuiltin	router
+syn keyword	yamahaBuiltin	routing
 syn keyword	yamahaBuiltin	server
 syn keyword	yamahaBuiltin	sha
 syn keyword	yamahaBuiltin	sha-hmac
-syn keyword	yamahaBuiltin	sip
+syn keyword	yamahaBuiltin	shaping
+syn match	yamahaBuiltin	"\(^\s*\)\@!sip"
 syn keyword	yamahaBuiltin	smtp
 syn keyword	yamahaBuiltin	smtp-auth
+syn keyword	yamahaBuiltin	static
 syn keyword	yamahaBuiltin	static-pass
 syn keyword	yamahaBuiltin	static-pass-log
 syn keyword	yamahaBuiltin	static-pass-nolog
 syn keyword	yamahaBuiltin	submission
+syn keyword	yamahaBuiltin	switch-interface
+syn keyword	yamahaBuiltin	switch-router
+syn match	yamahaBuiltin	"\(^\s*\|\S\)\@!syslog"
+syn keyword	yamahaBuiltin	tel
+syn keyword	yamahaBuiltin	tel-key
 syn keyword	yamahaBuiltin	telnet
 syn keyword	yamahaBuiltin	tcp
 syn keyword	yamahaBuiltin	tcpfin
+syn keyword	yamahaBuiltin	tcpflag
 syn keyword	yamahaBuiltin	tcprst
 syn keyword	yamahaBuiltin	text
+syn keyword	yamahaBuiltin	trigger
 syn keyword	yamahaBuiltin	udp
+syn keyword	yamahaBuiltin	vid
 syn keyword	yamahaBuiltin	version
+syn keyword	yamahaBuiltin	weight
 syn keyword	yamahaBuiltin	www
 
 
@@ -142,8 +198,11 @@ syn match	yamahaStatement		"^\s*alarm mobile"
 syn match	yamahaStatement		"^\s*alarm sd"
 syn match	yamahaStatement		"^\s*alarm startup"
 syn match	yamahaStatement		"^\s*alarm usbhost"
+syn match	yamahaStatement		"^\s*alarm usbhost"
+syn match	yamahaStatement		"^\s*analog call"
 syn match	yamahaStatement		"^\s*analog supplementary-service pseudo"
 syn match	yamahaStatement		"^\s*analog extension dial prefix"
+syn match	yamahaStatement		"^\s*analog extension emergency-call-dial type"
 syn match	yamahaStatement		"^\s*ap config directory"
 syn match	yamahaStatement		"^\s*ap config filename"
 syn match	yamahaStatement		"^\s*ap control config delete"
@@ -339,9 +398,9 @@ syn match	yamahaStatement		"^\s*ip icmp unreachable send"
 syn match	yamahaStatement		"^\s*ip implicit-route preference"
 syn match	yamahaStatement		"^\s*ip inbound filter"
 syn match	yamahaStatement		"^\s*ip keepalive"
-syn match	yamahaStatement		"^\s*ip v*lan[1-9] address"
-syn match	yamahaStatement		"^\s*ip v*lan[1-9] proxyarp"
-syn match	yamahaStatement		"^\s*ip v*lan[1-9] secure filter"
+syn match	yamahaStatement		"^\s*ip v*lan[1-9]\(/[1-9]\)* address"
+syn match	yamahaStatement		"^\s*ip v*lan[1-9]\(/[1-9]\)* proxyarp"
+syn match	yamahaStatement		"^\s*ip v*lan[1-9]\(/[1-9]\)* secure filter"
 syn match	yamahaStatement		"^\s*ip local forward filter"
 syn match	yamahaStatement		"^\s*ip loopback1 address"
 syn match	yamahaStatement		"^\s*ip loopback1 ospf area"
@@ -371,8 +430,10 @@ syn match	yamahaStatement		"^\s*ip loopback9 address"
 syn match	yamahaStatement		"^\s*ip loopback9 ospf area"
 syn match	yamahaStatement		"^\s*ip loopback9 secure filter"
 syn match	yamahaStatement		"^\s*ip null secure filter"
+syn match	yamahaStatement		"^\s*ip policy address group"
 syn match	yamahaStatement		"^\s*ip policy filter"
 syn match	yamahaStatement		"^\s*ip policy filter set"
+syn match	yamahaStatement		"^\s*ip policy interface group"
 syn match	yamahaStatement		"^\s*ip policy service group"
 syn match	yamahaStatement		"^\s*ip pp address"
 syn match	yamahaStatement		"^\s*ip pp forward filter"
@@ -448,7 +509,7 @@ syn match	yamahaStatement		"^\s*ip wan1 mtu"
 syn match	yamahaStatement		"^\s*ip wan1 nat descriptor"
 syn match	yamahaStatement		"^\s*ip wan1 secure filter"
 syn match	yamahaStatement		"^\s*ip wan1 tcp mss limit"
-syn match	yamahaStatement		"^\s*ip .* address"
+syn match	yamahaStatement		"^\s*ip bridge[1-9] address"
 syn match	yamahaStatement		"^\s*ip .* arp log"
 syn match	yamahaStatement		"^\s*ip .* arp queue length"
 syn match	yamahaStatement		"^\s*ip .* arp static"
@@ -476,7 +537,6 @@ syn match	yamahaStatement		"^\s*ip .* tcp mss limit"
 syn match	yamahaStatement		"^\s*ip .* vrrp"
 syn match	yamahaStatement		"^\s*ip .* vrrp shutdown trigger"
 syn match	yamahaStatement		"^\s*ip .* wol relay"
-syn match	yamahaStatement		"^\s*ip .* address"
 syn match	yamahaStatement		"^\s*ip .* dhcp lease time"
 syn match	yamahaStatement		"^\s*ip .* dhcp retry"
 syn match	yamahaStatement		"^\s*ip .* proxyarp"
@@ -642,6 +702,8 @@ syn match	yamahaStatement		"^\s*ipv6 .* dad retry count"
 syn match	yamahaStatement		"^\s*ipv6 .* prefix"
 syn match	yamahaStatement		"^\s*ipv6 .* prefix change log"
 syn match	yamahaStatement		"^\s*ipv6 .* secure filter"
+syn match	yamahaStatement		"^\s*isdn remote address call"
+syn match	yamahaStatement		"^\s*isdn local address"
 syn match	yamahaStatement		"^\s*l2tp always-on"
 syn match	yamahaStatement		"^\s*l2tp hostname"
 syn match	yamahaStatement		"^\s*l2tp keepalive log"
@@ -672,6 +734,7 @@ syn match	yamahaStatement		"^\s*less config tunnel"
 syn match	yamahaStatement		"^\s*less exec list"
 syn match	yamahaStatement		"^\s*less file list"
 syn match	yamahaStatement		"^\s*less log"
+syn match	yamahaStatement		"^\s*line type"
 syn match	yamahaStatement		"^\s*login password"
 syn match	yamahaStatement		"^\s*login password encrypted"
 syn match	yamahaStatement		"^\s*login radius use"
@@ -1027,6 +1090,7 @@ syn match	yamahaStatement		"^\s*sip arrive address check"
 syn match	yamahaStatement		"^\s*sip arrive ringing p-n-uatype"
 syn match	yamahaStatement		"^\s*sip arrive session timer method"
 syn match	yamahaStatement		"^\s*sip arrive session timer refresher"
+syn match	yamahaStatement		"^\s*sip codec permit"
 syn match	yamahaStatement		"^\s*sip ip protocol"
 syn match	yamahaStatement		"^\s*sip log"
 syn match	yamahaStatement		"^\s*sip outer address"
@@ -1287,9 +1351,13 @@ hi link yamahaBind		Number
 hi link yamahaTunnel	Function
 hi link yamahaVlan		Function
 hi link yamahaPP		Function
+hi link yamahaBRI		Function
+hi link yamahaPRI		Function
+hi link yamahaBridge	Function
 hi link yamahaComment	Comment
 hi link yamahaStatement	Statement
 hi link yamahaEqual		Statement
 hi link yamahaBuiltin	Function
 hi link yamahaSplitinto	Function
 hi link yamahaPort		Function
+hi link yamahaBandwidth	Number
