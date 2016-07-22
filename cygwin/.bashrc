@@ -221,6 +221,7 @@ alias ifconfig='wincmd ipconfig'
 alias tracert='wincmd tracert'
 
 alias open='cygstart'
+alias sjis='iconv -f cp932 -t utf-8'
 
 # virtualenv
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
