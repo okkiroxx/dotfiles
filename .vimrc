@@ -186,6 +186,7 @@ set mouse=a
 "jediがinitエラーになるのでコメントアウト
 "set shellslash
 set history=1000
+set clipboard=unnamed,autoselect
 
 set ambiwidth=
 
