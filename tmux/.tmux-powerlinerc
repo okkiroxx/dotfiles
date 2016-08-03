@@ -13,6 +13,8 @@
         export TMUX_POWERLINE_THEME="mactheme"
     elif [ $(uname | grep -e 'CYGWIN') ]; then
         export TMUX_POWERLINE_THEME="cygtheme"
+    elif [ "$( uname -a | grep -e 'PREEMPT')" ]; then
+        export TMUX_POWERLINE_THEME="bash_on_windows"
     else
         export TMUX_POWERLINE_THEME="mytheme"
     fi
