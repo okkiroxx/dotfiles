@@ -74,14 +74,13 @@ if has('win32')
   "set guifont=Consolas:h10
   "set guifont=Menlo_for_Powerline:h10
   "set guifont=MS_Mincho:h12:cSHIFTJIS
-  "set guifontwide=Migu_1M:h10
-  set guifontwide=Hack:h10
+  set guifontwide=Migu_1M:h10
   " 行間隔の設定
   set linespace=2
   " 一部のUCS文字の幅を自動計測して決める
   if has('kaoriya')
     if has('win32')
-      set ambiwidth=double
+      set ambiwidth=
     else
       set ambiwidth=auto
     endif
