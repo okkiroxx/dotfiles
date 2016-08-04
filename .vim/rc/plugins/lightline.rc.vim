@@ -26,20 +26,25 @@ let g:lightline = {
     \   },
     \ }
 
-if has('gui_running') && has('win32')
-    let g:lightline['separator'] = {'left': "⮀", 'right': "⮂"}
-    let g:lightline['subseparator'] = {'left': "⮁", 'right': "⮃"}
-    let s:readonly_str = '⭤'
-    let s:fugitive_str = '⭠ '
-elseif has('unix')
-    let g:lightline['separator'] = {'left': "", 'right': ""}
-    let g:lightline['subseparator'] = {'left': "", 'right': ""}
-    let s:readonly_str = ''
-    let s:fugitive_str = ' '
-else
-    let s:readonly_str = ''
-    let s:fugitive_str = ''
-endif
+"if has('gui_running') && has('win32')
+"    let g:lightline['separator'] = {'left': "⮀", 'right': "⮂"}
+"    let g:lightline['subseparator'] = {'left': "⮁", 'right': "⮃"}
+"    let s:readonly_str = '⭤'
+"    let s:fugitive_str = '⭠ '
+"elseif has('unix')
+"    let g:lightline['separator'] = {'left': "", 'right': ""}
+"    let g:lightline['subseparator'] = {'left': "", 'right': ""}
+"    let s:readonly_str = ''
+"    let s:fugitive_str = ' '
+"else
+"    let s:readonly_str = ''
+"    let s:fugitive_str = ''
+"endif
+
+let g:lightline['separator'] = {'left': "", 'right': ""}
+let g:lightline['subseparator'] = {'left': "", 'right': ""}
+let s:readonly_str = ''
+let s:fugitive_str = ' '
 
 function! LightLineModified()
     return &ft =~ 'help\|nerdtree\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
