@@ -193,8 +193,6 @@ set ambiwidth=
 "タグファイルは1個上のディレクトリも読む
 set tags=../tags,./tags,tags
 
-""autochdirがVimFilerとバッティングしたので、autocmdで
-"autocmd BufEnter *  execute ":lcd " . expand("%:p:h")
 "全角スペースの可視化
 autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("Error", '　')
 
@@ -223,4 +221,3 @@ endif
 "
 
 "}}}
-
