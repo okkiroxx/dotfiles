@@ -93,7 +93,7 @@ call plug#begin('~/.vim/plugged')
         \   'EvervimOpenBrowser',
         \   'EvervimNotebookList',
         \   'EvervimSearchByQuery'] }
-    source ~/.vim/rc/plugins/evervim.rc.vim
+    source ~/.vim/evervim.rc.vim
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
