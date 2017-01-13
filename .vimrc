@@ -97,7 +97,8 @@ call plug#begin('~/.vim/plugged')
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
-        \ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
+        "\ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
+        Plug 'kannokanno/previm'
     endif
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
