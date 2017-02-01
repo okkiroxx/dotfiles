@@ -85,7 +85,8 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 
-    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    "Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+    Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
     Plug 'kakkyz81/evervim', {
         \ 'on': [
