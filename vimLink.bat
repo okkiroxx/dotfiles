@@ -3,5 +3,5 @@ mklink %HOMEPATH%\_gvimrc %HOMEPATH%\dotfiles\.gvimrc
 mklink /D %HOMEPATH%\.vim\rc %HOMEPATH%\dotfiles\.vim\rc
 mklink /D %HOMEPATH%\vimfiles\syntax %HOMEPATH%\dotfiles\.vim\syntax
 
-copy /Y %HOMEPATH%\Dropbox\vim\evervim.rc.vim %HOMEPATH%\.vim\evervim.rc.vim
+mklink %HOMEPATH%\.vim\evervim.rc.vim %HOMEPATH%\Dropbox\vim\evervim.rc.vim
 
