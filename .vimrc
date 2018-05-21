@@ -155,6 +155,7 @@ set colorcolumn=80
 set foldcolumn=4
 set showtabline=2
 "set foldmethod=marker
+set termguicolors
 
 set ignorecase
 set smartcase
@@ -167,12 +168,14 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 
-set nowrap
+"set nowrap
+set breakindent
 set backspace=indent,eol,start
 set scrolloff=3
 set sidescrolloff=16
 set sidescroll=1
-"set splitbelow
+set splitbelow
+set splitright
 
 set hidden
 set confirm
@@ -212,14 +215,8 @@ elseif has('mac')
 endif
 "}}}
 
-"CUI用のcolorscheme "{{{
-if has('win32')
-    colorscheme desert
-else
-    colorscheme railscasts
-    autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
-endif
-"}}}
+colorscheme railscasts
+autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
 "
 
 "}}}
