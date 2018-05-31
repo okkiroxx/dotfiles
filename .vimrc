@@ -2,16 +2,6 @@ if &compatible
     set nocompatible
 endif
 
-" Python補完用 "{{{
-
-"if has('mac')
-"    let $PYTHONHOME=$HOME.".pyenv/versions/2.7.11"
-"    set pythondll=$HOME/.pyenv/versions/2.7.11/lib/libpython2.7.dylib
-"    py import sys
-"    let $PYTHONHOME=$HOME.".pyenv/versions/3.5.1"
-"    set pythonthreedll=$HOME/.pyenv/versions/3.5.1/lib/libpython3.5m.dylib
-"    py3 import sys
-"endif
 
 "}}}
 
@@ -34,7 +24,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-    if !has('kaoriya')
+    if ! ( has('kaoriya') || has('job') )
         if has('win32unix')
             Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_cygwin.mak' }
         else
@@ -62,20 +52,22 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 
     if has('win32') || has('win32unix')
+        Plug 'plytophogy/vim-virtualenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
+
         Plug 'davidhalter/jedi-vim', {
             \ 'do': 'pip install jedi',
-            \ 'for': ['python', 'python3', 'htmldjango'] }
-        \ | Plug 'jmcantrell/vim-virtualenv', {
             \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     else
+        Plug 'lambdalisue/vim-pyenv', {
+            \ 'for': ['python', 'python3', 'htmldjango'] }
+        autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
+
         Plug 'davidhalter/jedi-vim', {
             \ 'do': 'pip install jedi',
             \ 'for': ['python', 'python3', 'htmldjango'] }
-        \ | Plug 'lambdalisue/vim-pyenv', {
-            \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
-        autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
     endif
 
     if ! ( has('win32') || has('win32unix') || has('mac') )
@@ -85,7 +77,6 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 
-    "Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
     Plug 'kakkyz81/evervim', {
@@ -98,7 +89,6 @@ call plug#begin('~/.vim/plugged')
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
-        "\ | Plug 'kannokanno/previm', { 'on': 'PrevimOpen' }
         Plug 'kannokanno/previm'
     endif
 
