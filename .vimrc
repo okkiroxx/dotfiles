@@ -51,29 +51,33 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 
+
+    let b:pythonFiletype = ['python', 'python3', 'htmldjango']
+
     if has('win32') || has('win32unix')
         Plug 'plytophogy/vim-virtualenv', {
-            \ 'for': ['python', 'python3', 'htmldjango'] }
-
-        Plug 'davidhalter/jedi-vim', {
-            \ 'do': 'pip install jedi',
-            \ 'for': ['python', 'python3', 'htmldjango'] }
+            \ 'for': b:pythonFiletype }
+            \ | Plug 'davidhalter/jedi-vim', {
+                \ 'do': 'pip install jedi',
+                \ 'for': b:pythonFiletype }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     else
         Plug 'lambdalisue/vim-pyenv', {
-            \ 'for': ['python', 'python3', 'htmldjango'] }
+            \ 'for': b:pythonFiletype }
+            \ | Plug 'davidhalter/jedi-vim', {
+                \ 'do': 'pip install jedi',
+                \ 'for': b:pythonFiletype }
         autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
-
-        Plug 'davidhalter/jedi-vim', {
-            \ 'do': 'pip install jedi',
-            \ 'for': ['python', 'python3', 'htmldjango'] }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     endif
 
     if ! ( has('win32') || has('win32unix') || has('mac') )
         Plug 'lambdalisue/vim-django-support',
-            \ { 'for': ['python', 'python3', 'htmldjango'] }
+            \ { 'for': b:pythonFiletype }
     endif
+
+    unlet b:pythonFiletype
+
 
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 
