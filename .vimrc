@@ -176,7 +176,7 @@ set mouse=a
 set history=1000
 set clipboard=unnamed,autoselect
 
-set ambiwidth=
+"set ambiwidth=
 
 "タグファイルは1個上のディレクトリも読む
 set tags=../tags,./tags,tags
