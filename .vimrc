@@ -55,25 +55,18 @@ call plug#begin('~/.vim/plugged')
     let b:pythonFiletype = ['python', 'python3', 'htmldjango']
 
     if has('win32') || has('win32unix')
-        Plug 'plytophogy/vim-virtualenv', {
-            \ 'for': b:pythonFiletype }
-            \ | Plug 'davidhalter/jedi-vim', {
-                \ 'do': 'pip install jedi',
-                \ 'for': b:pythonFiletype }
+        Plug 'plytophogy/vim-virtualenv', { 'for': b:pythonFiletype }
+            \ | Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi', 'for': b:pythonFiletype }
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     else
-        Plug 'lambdalisue/vim-pyenv', {
-            \ 'for': b:pythonFiletype }
-            \ | Plug 'davidhalter/jedi-vim', {
-                \ 'do': 'pip install jedi',
-                \ 'for': b:pythonFiletype }
+        Plug 'lambdalisue/vim-pyenv', { 'for': b:pythonFiletype }
+            \ | Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi', 'for': b:pythonFiletype }
         autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
         autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
     endif
 
     if ! ( has('win32') || has('win32unix') || has('mac') )
-        Plug 'lambdalisue/vim-django-support',
-            \ { 'for': b:pythonFiletype }
+        Plug 'lambdalisue/vim-django-support', { 'for': b:pythonFiletype }
     endif
 
     unlet b:pythonFiletype
@@ -84,11 +77,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
     Plug 'kakkyz81/evervim', {
-        \ 'on': [
-        \   'EvervimCreateNote',
-        \   'EvervimOpenBrowser',
-        \   'EvervimNotebookList',
-        \   'EvervimSearchByQuery'] }
+        \ 'on': [ 'EvervimCreateNote', 'EvervimOpenBrowser', 'EvervimNotebookList', 'EvervimSearchByQuery'] }
     source ~/.vim/evervim.rc.vim
 
     if has('gui_running')
@@ -162,7 +151,7 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 
-"set nowrap
+set wrap
 set breakindent
 set backspace=indent,eol,start
 set scrolloff=3
