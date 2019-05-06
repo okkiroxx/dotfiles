@@ -91,9 +91,9 @@ call plug#begin('~/.vim/plugged')
     let g:lsp_acync_completeion =1
     let g:lsp_diagnostics_enabled = 1
     " debug
-    let g:lsp_log_verbose = 1
-    let g:lsp_log_file = expand('~/vim-lsp.log')
-    let g:asyncomplete_log_file = expand('~/asyncomplete.log')
+    "let g:lsp_log_verbose = 1
+    "let g:lsp_log_file = expand('~/vim-lsp.log')
+    "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
@@ -226,6 +226,7 @@ if executable('typescript-language-server')
 endif
 
 "autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
+autocmd FileType javascript setlocal omnifunc=lsp#complete
 function! s:configure_lsp() abort
     setlocal omnifunc=lsp#complete
 endfunction
