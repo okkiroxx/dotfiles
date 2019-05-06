@@ -51,41 +51,41 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 
-
-    let b:pythonFiletype = ['python', 'python3', 'htmldjango']
-
-    if has('win32') || has('win32unix')
-        Plug 'plytophogy/vim-virtualenv', { 'for': b:pythonFiletype }
-            \ | Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi', 'for': b:pythonFiletype }
-        autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
-    else
-        Plug 'lambdalisue/vim-pyenv', { 'for': b:pythonFiletype }
-            \ | Plug 'davidhalter/jedi-vim', { 'do': 'pip install jedi', 'for': b:pythonFiletype }
-        autocmd! User vim-pyenv source ~/.vim/rc/plugins/vim-pyenv.rc.vim
-        autocmd! User jedi-vim source ~/.vim/rc/plugins/jedi.rc.vim
-    endif
-
-    if ! ( has('win32') || has('win32unix') || has('mac') )
-        Plug 'lambdalisue/vim-django-support', { 'for': b:pythonFiletype }
-    endif
-
-    unlet b:pythonFiletype
-
-
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
-    Plug 'kakkyz81/evervim', {
-        \ 'on': [ 'EvervimCreateNote', 'EvervimOpenBrowser', 'EvervimNotebookList', 'EvervimSearchByQuery'] }
-    source ~/.vim/evervim.rc.vim
+    "Plug 'kakkyz81/evervim', {
+    "    \ 'on': [ 'EvervimCreateNote', 'EvervimOpenBrowser', 'EvervimNotebookList', 'EvervimSearchByQuery'] }
+    "source ~/.vim/evervim.rc.vim
+
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+    Plug 'cohama/lexima.vim'
+
+    Plug 'moll/vim-node', { 'for': 'javascript' }
+
+    "Plug 'pangloss/vim-javascript'
+    Plug 'othree/yajs.vim', { 'for': 'javascript' }
+
+    Plug 'mattn/jscomplete-vim', { 'for': 'javascript' }
+    autocmd! User jscomplete-vim source ~/.vim/rc/plugins/jscomplete-vim.rc.vim
+
+    Plug 'myhere/vim-nodejs-complete', { 'for': 'javascript' }
+    autocmd! User vim-nodejs-complete source ~/.vim/rc/plugins/vim-nodejs-complete.rc.vim
+
+    Plug 'w0rp/ale'
+    autocmd! User ale source ~/.vim/rc/plugins/ale.rc.vim
+
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    source ~/.vim/rc/plugins/deoplete.rc.vim
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
         Plug 'kannokanno/previm'
     endif
-
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
 call plug#end()
 
@@ -139,7 +139,7 @@ set colorcolumn=80
 set foldcolumn=4
 set showtabline=2
 "set foldmethod=marker
-set termguicolors
+"set termguicolors
 
 set ignorecase
 set smartcase
@@ -152,7 +152,7 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 
-set wrap
+"set wrap
 set breakindent
 set backspace=indent,eol,start
 set scrolloff=3
@@ -201,6 +201,7 @@ endif
 
 colorscheme railscasts
 autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
-"
+
+autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
 
 "}}}
