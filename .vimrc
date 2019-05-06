@@ -74,8 +74,8 @@ call plug#begin('~/.vim/plugged')
     "Plug 'myhere/vim-nodejs-complete', { 'for': 'javascript' }
     "autocmd! User vim-nodejs-complete source ~/.vim/rc/plugins/vim-nodejs-complete.rc.vim
 
-    "Plug 'w0rp/ale'
-    "autocmd! User ale source ~/.vim/rc/plugins/ale.rc.vim
+    Plug 'w0rp/ale'
+    autocmd! User ale source ~/.vim/rc/plugins/ale.rc.vim
 
     "Plug 'Shougo/deoplete.nvim'
     "Plug 'roxma/nvim-yarp'
@@ -88,8 +88,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'natebosch/vim-lsc'
     Plug 'ryanolsonx/vim-lsp-javascript'
-    let g:lsp_acync_completeion =1
-    let g:lsp_diagnostics_enabled = 1
+    let g:lsp_async_completeion =1
+    let g:lsp_diagnostics_enabled = 0
     " debug
     "let g:lsp_log_verbose = 1
     "let g:lsp_log_file = expand('~/vim-lsp.log')
