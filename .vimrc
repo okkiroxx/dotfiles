@@ -87,8 +87,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'natebosch/vim-lsc'
-    Plug 'ryanolsonx/vim-lsp-javascript'
-    let g:lsp_async_completeion =1
+    Plug 'ryanolsonx/vim-lsp-javascript', { 'for': 'javascript' }
+    let g:lsp_async_completion =1
     let g:lsp_diagnostics_enabled = 0
     " debug
     "let g:lsp_log_verbose = 1
@@ -152,7 +152,7 @@ set colorcolumn=80
 set foldcolumn=4
 set showtabline=2
 "set foldmethod=marker
-"set termguicolors
+set termguicolors
 
 set ignorecase
 set smartcase
