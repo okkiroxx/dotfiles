@@ -152,7 +152,6 @@ set colorcolumn=80
 set foldcolumn=4
 set showtabline=2
 "set foldmethod=marker
-set termguicolors
 
 set ignorecase
 set smartcase
@@ -192,16 +191,20 @@ set clipboard=unnamed,autoselect
 
 "set ambiwidth=
 
+if has('win32')
+    set termguicolors
+endif
+
 "タグファイルは1個上のディレクトリも読む
 set tags=../tags,./tags,tags
 
 "全角スペースの可視化
-autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("Error", '　')
+autocmd vimenter,winenter * let w:m_tbs = matchadd("error", '　')
 
 syntax enable
 
 
-"OS毎のファイルフォーマットを指定 "{{{
+"os毎のファイルフォーマットを指定 "{{{
 if has('win32')
     set fileformats=dos,unix
 elseif has('unix')
@@ -213,7 +216,7 @@ endif
 "}}}
 
 colorscheme railscasts
-autocmd VimEnter,ColorScheme * highlight Normal ctermbg=none
+autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 
 if executable('typescript-language-server')
