@@ -83,10 +83,15 @@ call plug#begin('~/.vim/plugged')
     "source ~/.vim/rc/plugins/deoplete.rc.vim
 
     Plug 'prabirshrestha/async.vim'
+
     Plug 'prabirshrestha/vim-lsp'
+
     Plug 'prabirshrestha/asyncomplete.vim'
+
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
     Plug 'natebosch/vim-lsc'
+
     Plug 'ryanolsonx/vim-lsp-javascript', { 'for': 'javascript' }
     let g:lsp_async_completion =1
     let g:lsp_diagnostics_enabled = 0
