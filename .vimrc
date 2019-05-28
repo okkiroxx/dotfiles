@@ -135,11 +135,9 @@ noremap <Leader>g :GundoToggle<CR>
 "ctrl+\でNERDTreeを起動
 nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
-"Evervim
-nnoremap <silent> ,el :<C-u>EvervimNotebookList<CR>
-nnoremap <silent> ,en :<C-u>EvervimCreateNote<CR>
-nnoremap <silent> ,es :<C-u>EvervimSearchByQuery<SPACE>
-nnoremap <silent> ,eb :<C-u>EvervimOpenBrowser<CR>
+"ctrl+lで右に移動
+inoremap <C-l> <Right>
+
 "}}}
 
 "---------- その他 "{{{
