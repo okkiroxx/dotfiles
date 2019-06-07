@@ -41,15 +41,19 @@ let g:lightline = {
 "    let s:fugitive_str = ''
 "endif
 
-if has('win32') && !has('gui_running')
-    let s:fugitive_str = '↛ '
-    let s:readonly_str = '[X]'
-else
-    let g:lightline['separator'] = {'left': "", 'right': ""}
-    let g:lightline['subseparator'] = {'left': "", 'right': ""}
-    let s:readonly_str = ''
-    let s:fugitive_str = ' '
-endif
+"if has('win32') && !has('gui_running')
+"    let s:fugitive_str = '↛ '
+"    let s:readonly_str = '[X]'
+"else
+"    let g:lightline['separator'] = {'left': "", 'right': ""}
+"    let g:lightline['subseparator'] = {'left': "", 'right': ""}
+"    let s:readonly_str = ''
+"    let s:fugitive_str = ' '
+"endif
+let g:lightline['separator'] = {'left': "", 'right': ""}
+let g:lightline['subseparator'] = {'left': "", 'right': ""}
+let s:readonly_str = ''
+let s:fugitive_str = ' '
 
 function! LightLineModified()
     return &ft =~ 'help\|nerdtree\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
