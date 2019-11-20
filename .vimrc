@@ -100,6 +100,9 @@ call plug#begin('~/.vim/plugged')
     "let g:lsp_log_file = expand('~/vim-lsp.log')
     "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
+    "pip install python-language-serverしてから"
+    Plug 'ryanolsonx/vim-lsp-python'
+
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
         Plug 'kannokanno/previm'
