@@ -2,7 +2,7 @@
 
 nnoremap <Leader>q :<C-u>bw! quickrun<CR>
 
-let g:quickrun_config = get(g:, 'quickrun_config', {})
+let g:quickrun_config={'*': {'split': ''}}
 
 if has('job')
     let g:quickrun_config._ = {
