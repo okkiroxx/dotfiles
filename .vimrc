@@ -100,8 +100,8 @@ call plug#begin('~/.vim/plugged')
     "let g:lsp_log_file = expand('~/vim-lsp.log')
     "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
 
-    "pip install python-language-serverしてから"
-    Plug 'ryanolsonx/vim-lsp-python'
+    "pip install python-language-serverしてないとエラー出る"
+    "Plug 'ryanolsonx/vim-lsp-python'
 
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
@@ -233,6 +233,16 @@ if executable('typescript-language-server')
         \ 'whitelist': ['javascript', 'javascript.jsx'],
         \ })
 endif
+
+
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+                \ 'name': 'pyls',
+                \ 'cmd': {server_info->['pyls']},
+                \ 'whitelist': ['python'],
+                \ })
+endif
+
 
 "autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
 autocmd FileType javascript setlocal omnifunc=lsp#complete
