@@ -30,7 +30,7 @@ precmd () { vcs_info }
 
 PROMPT="
 %{$fg[green]%}%n@%m %{$fg[yellow]%}[%~]%{$reset_color%}"
-PROMPT=$PROMPT" ${vcs_info_msg_0_}
+PROMPT=$PROMPT" \$vcs_info_msg_0_
 %{${fg[cyan]%}%}[%D %T]%{${reset_color}%} %# "
 
 # RPROMPT="%{${fg[green]}%}[%~]%{${reset_color}%}"
