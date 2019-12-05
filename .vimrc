@@ -24,14 +24,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/vim-plug',
         \ {'dir': '~/.vim/plugged/vim-plug/autoload'}
 
-    if ! ( has('kaoriya') || has('job') )
-        if has('win32unix')
-            Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_cygwin.mak' }
-        else
-            Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-        endif
-    endif
-
     Plug 'itchyny/lightline.vim'
     source ~/.vim/rc/plugins/lightline.rc.vim
 
@@ -54,10 +46,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-
-    "Plug 'kakkyz81/evervim', {
-    "    \ 'on': [ 'EvervimCreateNote', 'EvervimOpenBrowser', 'EvervimNotebookList', 'EvervimSearchByQuery'] }
-    "source ~/.vim/evervim.rc.vim
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
