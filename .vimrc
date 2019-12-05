@@ -103,6 +103,10 @@ call plug#begin('~/.vim/plugged')
     "pip install python-language-serverしてないとエラー出る"
     "Plug 'ryanolsonx/vim-lsp-python'
 
+    if executable('pyenv')
+        Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
+    endif
+
     if has('gui_running')
         Plug 'tyru/open-browser.vim'
         Plug 'kannokanno/previm'
