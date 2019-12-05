@@ -108,11 +108,7 @@ endfunction
 
 function! LightLinePyenv()
     if executable('pyenv')
-        if ! ( has('win32') || has('win32unix') )
-            return &ft == 'python' ? pyenv#info#format('⌘%av') : ""
-        else
-            return ""
-        endif
+        return &ft == 'python' ? pyenv#info#format('⌘%av') : ""
     else
         return ""
     endif
