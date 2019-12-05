@@ -8,10 +8,6 @@ if has('job')
     let g:quickrun_config._ = {
           \ 'runner' : 'job',
           \ }
-else
-    let g:quickrun_config._ = {
-          \ 'runner' : 'vimproc',
-          \ }
 endif
 
 
