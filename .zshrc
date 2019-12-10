@@ -35,7 +35,7 @@ PROMPT=$PROMPT" \$vcs_info_msg_0_
 
 # RPROMPT="%{${fg[green]}%}[%~]%{${reset_color}%}"
 
-alias ls="ls -GF"
+alias ls="ls -GF --color=auto"
 alias grep="grep --color"
 alias rm='rm -i'
 alias cp='cp -i'
