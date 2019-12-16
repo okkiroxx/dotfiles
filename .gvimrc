@@ -4,7 +4,7 @@ scriptencoding utf-8
 " An example for a Japanese version gvimrc file.
 " 日本語版のデフォルトGUI設定ファイル(gvimrc) - Vim7用試作
 "
-" Last Change: 27-Nov-2019.
+" Last Change: 16-Dec-2019.
 " Maintainer:  MURAOKA Taro <koron.kaoriya@gmail.com>
 "
 " 解説:
@@ -70,11 +70,7 @@ colorscheme railscasts
 "
 if has('win32')
   " Windows用
-  set guifont=HackGen_Console_for_Powerline:h9
-  "set guifont=Consolas:h10
-  "set guifont=Menlo_for_Powerline:h10
-  "set guifont=MS_Mincho:h12:cSHIFTJIS
-  "set guifontwide=Migu_1M:h10
+  set guifont=HackGen_Console_for_Powerline:h10
   " 行間隔の設定
   set linespace=2
   " 一部のUCS文字の幅を自動計測して決める
