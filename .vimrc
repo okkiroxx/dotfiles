@@ -51,25 +51,6 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'cohama/lexima.vim'
 
-    "Plug 'moll/vim-node', { 'for': 'javascript' }
-
-    "Plug 'pangloss/vim-javascript'
-    "Plug 'othree/yajs.vim', { 'for': 'javascript' }
-
-    "Plug 'mattn/jscomplete-vim', { 'for': 'javascript' }
-    "autocmd! User jscomplete-vim source ~/.vim/rc/plugins/jscomplete-vim.rc.vim
-
-    "Plug 'myhere/vim-nodejs-complete', { 'for': 'javascript' }
-    "autocmd! User vim-nodejs-complete source ~/.vim/rc/plugins/vim-nodejs-complete.rc.vim
-
-    Plug 'w0rp/ale'
-    autocmd! User ale source ~/.vim/rc/plugins/ale.rc.vim
-
-    "Plug 'Shougo/deoplete.nvim'
-    "Plug 'roxma/nvim-yarp'
-    "Plug 'roxma/vim-hug-neovim-rpc'
-    "source ~/.vim/rc/plugins/deoplete.rc.vim
-
     Plug 'prabirshrestha/async.vim'
 
     Plug 'prabirshrestha/vim-lsp'
@@ -78,18 +59,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
-    Plug 'natebosch/vim-lsc'
-
-    Plug 'ryanolsonx/vim-lsp-javascript', { 'for': 'javascript' }
-    let g:lsp_async_completion =1
-    let g:lsp_diagnostics_enabled = 0
-    " debug
-    "let g:lsp_log_verbose = 1
-    "let g:lsp_log_file = expand('~/vim-lsp.log')
-    "let g:asyncomplete_log_file = expand('~/asyncomplete.log')
-
-    "pip install python-language-serverしてないとエラー出る"
-    "Plug 'ryanolsonx/vim-lsp-python'
+    Plug 'mattn/vim-lsp-settings'
 
     if executable('pyenv')
         Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
@@ -99,6 +69,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'tyru/open-browser.vim'
         Plug 'kannokanno/previm'
     endif
+
 
 call plug#end()
 
@@ -217,30 +188,13 @@ colorscheme railscasts
 autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 
-if executable('typescript-language-server')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'javascript support using typescript-language-server',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
-        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
-        \ 'whitelist': ['javascript', 'javascript.jsx'],
-        \ })
-endif
-
-
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-                \ 'name': 'pyls',
-                \ 'cmd': {server_info->['pyls']},
-                \ 'whitelist': ['python'],
-                \ })
-endif
-
-
-"autocmd FileType javascript setlocal omnifunc=nodejscomplete#CompleteJS
-autocmd FileType javascript setlocal omnifunc=lsp#complete
-function! s:configure_lsp() abort
-    setlocal omnifunc=lsp#complete
-endfunction
+"if executable('pyls')
+"    au User lsp_setup call lsp#register_server({
+"                \ 'name': 'pyls',
+"                \ 'cmd': {server_info->['pyls']},
+"                \ 'whitelist': ['python'],
+"                \ })
+"endif
 
 
 "}}}
