@@ -3,10 +3,6 @@ if &compatible
 endif
 
 
-"}}}
-
-"---------- プラグイン "{{{
-
 if has('vim_starting')
     set rtp+=~/.vim/plugged/vim-plug
     if !isdirectory(expand('~/.vim/plugged/vim-plug'))
@@ -51,15 +47,18 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'cohama/lexima.vim'
 
+
     Plug 'prabirshrestha/async.vim'
-
-    Plug 'prabirshrestha/vim-lsp'
-
     Plug 'prabirshrestha/asyncomplete.vim'
-
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
+    Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
+    Plug 'mattn/vim-lsp-icons'
+
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
+    source ~/.vim/rc/plugins/lsp.rc.vim
+
 
     if executable('pyenv')
         Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
@@ -75,10 +74,8 @@ call plug#end()
 
 filetype plugin indent on
 
-"}}}
 
 
-"---------- キーマッピング "{{{
 
 "ESCを2回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :noh<CR>
@@ -104,9 +101,7 @@ nnoremap <silent><C-\> :NERDTreeToggle<CR>
 "ctrl+lで右に移動
 inoremap <C-l> <Right>
 
-"}}}
 
-"---------- その他 "{{{
 set fenc=utf-8
 set title
 set number
@@ -173,7 +168,7 @@ autocmd vimenter,winenter * let w:m_tbs = matchadd("error", '　')
 syntax enable
 
 
-"os毎のファイルフォーマットを指定 "{{{
+"os毎のファイルフォーマットを指定
 if has('win32')
     set fileformats=dos,unix
 elseif has('unix')
@@ -182,19 +177,10 @@ elseif has('unix')
 elseif has('mac')
     set fileformats=mac,dos
 endif
-"}}}
+
 
 colorscheme railscasts
 autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 
-"if executable('pyls')
-"    au User lsp_setup call lsp#register_server({
-"                \ 'name': 'pyls',
-"                \ 'cmd': {server_info->['pyls']},
-"                \ 'whitelist': ['python'],
-"                \ })
-"endif
 
-
-"}}}
