@@ -57,7 +57,6 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
-    source ~/.vim/rc/plugins/lsp.rc.vim
 
 
     if executable('pyenv')
@@ -74,6 +73,8 @@ call plug#end()
 
 filetype plugin indent on
 
+
+source ~/.vim/rc/plugins/lsp.rc.vim
 
 
 
