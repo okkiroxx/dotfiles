@@ -1,7 +1,3 @@
-if &compatible
-    set nocompatible
-endif
-
 
 if has('vim_starting')
     set rtp+=~/.vim/plugged/vim-plug
@@ -57,6 +53,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
+    source ~/.vim/rc/plugins/lsp.rc.vim
 
 
     if executable('pyenv')
@@ -74,8 +71,61 @@ call plug#end()
 filetype plugin indent on
 
 
-source ~/.vim/rc/plugins/lsp.rc.vim
+set fenc=utf-8
+set title
+set number
+set ruler
+set showcmd
+set laststatus=2
+set list
+set listchars=tab:▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set cursorline
+set cursorcolumn
+set colorcolumn=80
+set foldcolumn=4
+set showtabline=2
 
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+
+set tabstop=4
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+
+set nowrap
+set breakindent
+set backspace=indent,eol,start
+set scrolloff=3
+set sidescrolloff=16
+set sidescroll=1
+set splitbelow
+set splitright
+
+set hidden
+set confirm
+set switchbuf=useopen
+set undodir=~/.vim/undo
+set backupdir=~/.vim/backup
+set undofile
+set backup
+
+set virtualedit=block
+set mouse=a
+set history=1000
+set clipboard=unnamed,autoselect
+set tags=../tags,./tags,tags
+
+if exists('&termguicolors')
+    set termguicolors
+endif
+
+if exists('&completeslash')
+    set completeslash=slash
+endif
 
 
 "ESCを2回押すことでハイライトを消す
@@ -103,85 +153,24 @@ nnoremap <silent><C-\> :NERDTreeToggle<CR>
 inoremap <C-l> <Right>
 
 
-set fenc=utf-8
-set title
-set number
-set ruler
-set showcmd
-set laststatus=2
-set list
-set listchars=tab:▸\ ,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set cursorline
-set cursorcolumn
-set colorcolumn=80
-set foldcolumn=4
-set showtabline=2
-"set foldmethod=marker
 
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-set smarttab
-
-"set wrap
-set breakindent
-set backspace=indent,eol,start
-set scrolloff=3
-set sidescrolloff=16
-set sidescroll=1
-set splitbelow
-set splitright
-
-set hidden
-set confirm
-set switchbuf=useopen
-set undodir=~/.vim/undo
-set backupdir=~/.vim/backup
-"set directory=~/.vim/tmp
-set undofile
-set backup
-
-set virtualedit=block
-set mouse=a
-"jediがinitエラーになるのでコメントアウト
-"set shellslash
-set history=1000
-set clipboard=unnamed,autoselect
-
-"set ambiwidth=
-
-if has('win32')
-    set termguicolors
+"os毎のファイルフォーマットを指定
+if has('win32') || has('win64')
+    set fileformats=dos,unix
+elseif has('mac')
+    set fileformats=mac,dos
+elseif has('unix')
+    set fileformats=unix,dos
+    set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
 endif
 
-"タグファイルは1個上のディレクトリも読む
-set tags=../tags,./tags,tags
+
+autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 "全角スペースの可視化
 autocmd vimenter,winenter * let w:m_tbs = matchadd("error", '　')
 
-syntax enable
-
-
-"os毎のファイルフォーマットを指定
-if has('win32')
-    set fileformats=dos,unix
-elseif has('unix')
-    set fileformats=unix,dos
-    set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
-elseif has('mac')
-    set fileformats=mac,dos
-endif
-
 
 colorscheme railscasts
-autocmd vimenter,colorscheme * highlight normal ctermbg=none
-
-
+syntax enable
 
