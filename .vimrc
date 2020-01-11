@@ -120,7 +120,9 @@ set clipboard=unnamed,autoselect
 set tags=../tags,./tags,tags
 
 if exists('&termguicolors')
-    set termguicolors
+    if !has('unix')
+        set termguicolors
+    endif
 endif
 
 if exists('&completeslash')
