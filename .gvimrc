@@ -82,7 +82,7 @@ if has('win32')
     endif
   endif
 elseif has('mac')
-  set guifont=HackGen_Console_for_Powerline:h12
+  set guifont=HackGen_Console_for_Powerline:h13
   set linespace=1
 elseif has('xfontset')
   " UNIX用
