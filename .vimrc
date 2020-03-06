@@ -160,7 +160,7 @@ inoremap <C-l> <Right>
 if has('win32') || has('win64')
     set fileformats=dos,unix
 elseif has('mac')
-    set fileformats=mac,dos
+    set fileformats=unix,dos,mac
 elseif has('unix')
     set fileformats=unix,dos
     set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
