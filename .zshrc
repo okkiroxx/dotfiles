@@ -29,7 +29,7 @@ zstyle ":vcs_info:*" actionformats "[%b|%a]"
 precmd () { vcs_info }
 
 PROMPT="
-%{$fg[green]%}%n@%m %{$fg[yellow]%}[%~]%{$reset_color%}"
+%{$fg[green]%}%n@%m %{$fg[yellow]%}[%~]%{$reset_color%}"
 PROMPT=$PROMPT" \$vcs_info_msg_0_
 %{${fg[cyan]%}%}[%D %T]%{${reset_color}%} %# "
 
