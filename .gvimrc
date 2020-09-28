@@ -75,11 +75,7 @@ if has('win32')
   set linespace=2
   " 一部のUCS文字の幅を自動計測して決める
   if has('kaoriya')
-    if has('win32')
-      set ambiwidth=
-    else
-      set ambiwidth=auto
-    endif
+    set ambiwidth=auto
   endif
 elseif has('mac')
   set guifont=Cica:h14
