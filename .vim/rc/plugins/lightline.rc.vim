@@ -76,10 +76,13 @@ function! LightLineFilename()
 endfunction
 
 function! LightLineFugitive()
-    if &ft !~? 'nerdtree\|vimfiler\|gundo' && exists("*fugitive#head")
-        let _ = fugitive#head()
-        return strlen(_) ? s:fugitive_str._ : ''
-    endif
+    try
+        if &ft !~? 'nerdtree\|vimfiler\|gundo' && exists("*FugitiveHead")
+            let _ = fugitive#head()
+            return strlen(_) ? s:fugitive_str._ : ''
+        endif
+    catch
+    endtry
     return ''
 endfunction
 
