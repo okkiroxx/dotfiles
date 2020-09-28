@@ -65,6 +65,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'kannokanno/previm'
     endif
 
+    Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -175,4 +176,6 @@ autocmd vimenter,winenter * let w:m_tbs = matchadd("error", '　')
 
 colorscheme railscasts
 syntax enable
+
+let g:webdevicons_enable_nerdtree = 1
 
