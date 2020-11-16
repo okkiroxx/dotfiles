@@ -71,7 +71,6 @@ call plug#end()
 
 filetype plugin indent on
 
-
 set fenc=utf-8
 set title
 set number
@@ -91,11 +90,21 @@ set smartcase
 set incsearch
 set hlsearch
 
-set tabstop=4
-set expandtab
-set shiftwidth=4
-set softtabstop=4
+set autoindent
+set smartindent
+set cindent
 set smarttab
+set expandtab
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=0
+
+if has("autocmd")
+    autocmd FileType js     setlocal sw=2 sts=0 ts=2 et
+    autocmd FileType python setlocal sw=4 sts=0 ts=4 et
+    autocmd FileType html   setlocal sw=2 sts=0 ts=2 et
+endif
 
 set nowrap
 set breakindent
