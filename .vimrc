@@ -93,13 +93,13 @@ set hlsearch
 
 set autoindent
 set smartindent
-set cindent
+"set cindent
 set smarttab
 set expandtab
 
-set tabstop=4
 set shiftwidth=4
 set softtabstop=0
+set tabstop=4
 
 if has("autocmd")
     autocmd FileType js     setlocal sw=2 sts=0 ts=2 et
