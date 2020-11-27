@@ -25,7 +25,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'lilydjwg/colorizer'
 
-    Plug 'KeitaNakamura/railscasts.vim'
+    Plug 'jpo/vim-railscasts-theme'
 
     Plug 'tpope/vim-fugitive'
 
