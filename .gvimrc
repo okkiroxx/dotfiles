@@ -187,8 +187,8 @@ if has('win32')
     autocmd FocusLost * set transparency=220
 elseif has('mac')
     "set transparency=10
-    autocmd FocusGained * set transparency=6
-    autocmd FocusLost * set transparency=20
+    autocmd FocusGained * set transparency=3
+    autocmd FocusLost * set transparency=10
 endif
 
 " autocmd VimEnter * VimFilerExplorer

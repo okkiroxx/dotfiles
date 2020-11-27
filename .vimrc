@@ -19,14 +19,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/lightline.vim'
     source ~/.vim/rc/plugins/lightline.rc.vim
 
-    Plug 'nathanaelkane/vim-indent-guides'
-    source ~/.vim/rc/plugins/indent_guides.rc.vim
+    Plug 'Yggdroot/indentLine'
 
     Plug 'bronson/vim-trailing-whitespace'
 
     Plug 'lilydjwg/colorizer'
 
-    Plug 'jpo/vim-railscasts-theme'
+    Plug 'KeitaNakamura/railscasts.vim'
 
     Plug 'tpope/vim-fugitive'
 
@@ -42,6 +41,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
     Plug 'cohama/lexima.vim'
+
+    Plug 'alvan/vim-closetag'
 
 
     Plug 'prabirshrestha/async.vim'
