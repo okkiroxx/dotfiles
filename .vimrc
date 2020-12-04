@@ -26,6 +26,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'lilydjwg/colorizer'
 
     Plug 'jpo/vim-railscasts-theme'
+    Plug 'joshdick/onedark.vim'
+    Plug 'tomasr/molokai'
+
+    Plug 'crusoexia/vim-monokai'
+    Plug 'crusoexia/vim-javascript-lib'
+    Plug 'pangloss/vim-javascript'
 
     Plug 'tpope/vim-fugitive'
 
