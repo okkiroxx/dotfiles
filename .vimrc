@@ -195,3 +195,4 @@ syntax enable
 
 let g:webdevicons_enable_nerdtree = 1
 
+
