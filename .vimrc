@@ -74,6 +74,8 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'ryanoasis/vim-devicons'
 
+    Plug 'okkiroxx/rtx.vim'
+
 call plug#end()
 
 filetype plugin indent on
