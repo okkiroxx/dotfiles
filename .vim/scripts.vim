@@ -3,5 +3,5 @@ if did_filetype()
 endif
 
 if getline(1) =~ '^#\sRT.*Rev'
-    setfiletype yamaha
+    setfiletype rtx
 endif
