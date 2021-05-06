@@ -28,8 +28,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'jpo/vim-railscasts-theme'
     Plug 'joshdick/onedark.vim'
     Plug 'tomasr/molokai'
-
     Plug 'crusoexia/vim-monokai'
+
     Plug 'crusoexia/vim-javascript-lib'
     Plug 'pangloss/vim-javascript'
 
@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
+    Plug 'ryanoasis/vim-devicons'
 
     Plug 'cohama/lexima.vim'
 
@@ -73,7 +74,7 @@ call plug#begin('~/.vim/plugged')
         Plug 'kannokanno/previm'
     endif
 
-    Plug 'ryanoasis/vim-devicons'
+    Plug 'vim-jp/vimdoc-ja'
 
     Plug 'okkiroxx/rtx.vim'
 
@@ -138,6 +139,8 @@ set mouse=a
 set history=1000
 set clipboard=unnamed,autoselect
 set tags=../tags,./tags,tags
+
+set helplang=ja
 
 if exists('&termguicolors')
     if !has('unix')
