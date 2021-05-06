@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'pangloss/vim-javascript'
 
     Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'thinca/vim-quickrun', { 'on': ['QuickRun'] }
     autocmd! User vim-quickrun source ~/.vim/rc/plugins/quickrun.rc.vim
