@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
 
     Plug 'cohama/lexima.vim'
 
