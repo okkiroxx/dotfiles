@@ -30,8 +30,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tomasr/molokai'
     Plug 'crusoexia/vim-monokai'
 
-    Plug 'crusoexia/vim-javascript-lib'
-    Plug 'pangloss/vim-javascript'
+    "Plug 'crusoexia/vim-javascript-lib'
+    "Plug 'pangloss/vim-javascript'
 
     Plug 'tpope/vim-fugitive'
     Plug 'airblade/vim-gitgutter'
@@ -54,15 +54,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'alvan/vim-closetag'
 
 
-    Plug 'prabirshrestha/async.vim'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
     Plug 'mattn/vim-lsp-icons'
+    "Plug 'prabirshrestha/async.vim'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
+
     source ~/.vim/rc/plugins/lsp.rc.vim
 
 
