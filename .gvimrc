@@ -183,8 +183,8 @@ endif
 
 if has('win32')
     "autocmd GUIEnter * set transparency=230
-    autocmd FocusGained * set transparency=245
-    autocmd FocusLost * set transparency=220
+    "autocmd FocusGained * set transparency=245
+    "autocmd FocusLost * set transparency=220
 elseif has('mac')
     set transparency=11
     autocmd FocusGained * set transparency=3
