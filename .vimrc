@@ -43,6 +43,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar', { 'on': ['TagbarToggle'] }
 
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+    let g:gundo_prefer_python3 = 1
 
     Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 
