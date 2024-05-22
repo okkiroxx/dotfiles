@@ -41,13 +41,16 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
-case "$(uname)" in
+#case "$(uname)" in
+#
+#    Darwin)
+#        if [[ -d /Applications/MacVim.app ]]; then
+#            export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
+#        fi
+#        ;;
+#    *) ;;
+#
+#    esac
 
-    Darwin)
-        if [[ -d /Applications/MacVim.app ]]; then
-            export PATH="/Applications/MacVim.app/Contents/bin:$PATH"
-        fi
-        ;;
-    *) ;;
-
-    esac
+alias vim="mvim -v"
+alias gvim="mvim"
