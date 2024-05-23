@@ -134,6 +134,7 @@ set confirm
 set switchbuf=useopen
 set undodir=~/.vim/undo
 set backupdir=~/.vim/backup
+set directory=~/.vim/swp
 set undofile
 set backup
 
