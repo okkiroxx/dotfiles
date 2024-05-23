@@ -78,7 +78,7 @@ endfunction
 function! LightLineFugitive()
     try
         if &ft !~? 'nerdtree\|vimfiler\|gundo' && exists("*FugitiveHead")
-            let _ = fugitive#head()
+            let _ = FugitiveHead()
             return strlen(_) ? s:fugitive_str._ : ''
         endif
     catch
