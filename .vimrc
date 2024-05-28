@@ -179,10 +179,6 @@ noremap <Leader>g :GundoToggle<CR>
 "ctrl+\でNERDTreeを起動
 nnoremap <silent><C-\> :NERDTreeToggle<CR>
 
-"ctrl+lで右に移動
-inoremap <C-l> <Right>
-
-
 
 "os毎のファイルフォーマットを指定
 if has('win32') || has('win64')

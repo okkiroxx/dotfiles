@@ -54,3 +54,5 @@ alias mv='mv -i'
 
 alias vim="mvim -v"
 alias gvim="mvim"
+alias ctags="`brew --prefix`/bin/ctags"
+
