@@ -207,7 +207,7 @@ syntax enable
 let g:webdevicons_enable_nerdtree = 1
 
 if has('vim_starting')
-    " 挿入モード時に非点滅の縦棒タイプのカーソル
+    " 挿入モード時に点滅の縦棒タイプのカーソル
     let &t_SI .= "\e[5 q"
     " ノーマルモード時に非点滅のブロックタイプのカーソル
     let &t_EI .= "\e[2 q"
