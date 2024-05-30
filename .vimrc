@@ -202,6 +202,8 @@ syntax enable
 
 let g:webdevicons_enable_nerdtree = 1
 
+let g:vim_json_syntax_conceal = 0
+
 if has('vim_starting')
     " 挿入モード時に点滅の縦棒タイプのカーソル
     let &t_SI .= "\e[5 q"
