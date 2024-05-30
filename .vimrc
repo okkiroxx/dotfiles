@@ -55,6 +55,9 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'alvan/vim-closetag'
 
+    Plug 'elzr/vim-json'
+    let g:vim_json_syntax_conceal = 0
+
 
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
@@ -202,7 +205,6 @@ syntax enable
 
 let g:webdevicons_enable_nerdtree = 1
 
-let g:vim_json_syntax_conceal = 0
 
 if has('vim_starting')
     " 挿入モード時に点滅の縦棒タイプのカーソル
