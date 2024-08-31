@@ -160,6 +160,13 @@ if exists('&completeslash')
     set completeslash=slash
 endif
 
+set completeopt=menuone,noinsert
+
+"補完表示時のEnterで改行をしない
+inoremap <expr><CR> pumvisible() ? "<C-y>" : "<CR>"
+"補完表示時TABで決定
+inoremap <expr><TAB> pumvisible() ? "<C-y>" : "<TAB>"
+
 
 "ESCを2回押すことでハイライトを消す
 nmap <silent> <Esc><Esc> :noh<CR>
@@ -181,7 +188,6 @@ noremap <Leader>g :GundoToggle<CR>
 
 "ctrl+\でNERDTreeを起動
 nnoremap <silent><C-\> :NERDTreeToggle<CR>
-
 
 "os毎のファイルフォーマットを指定
 if has('win32') || has('win64')
