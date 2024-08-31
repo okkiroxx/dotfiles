@@ -118,9 +118,10 @@ set softtabstop=0
 set tabstop=4
 
 if has("autocmd")
-    autocmd FileType js     setlocal sw=2 sts=0 ts=2 et
-    autocmd FileType python setlocal sw=4 sts=0 ts=4 et
-    autocmd FileType html   setlocal sw=2 sts=0 ts=2 et
+    autocmd FileType js         setlocal sw=2 sts=0 ts=2 et
+    autocmd FileType javascript setlocal sw=2 sts=0 ts=2 et
+    autocmd FileType html       setlocal sw=2 sts=0 ts=2 et
+    autocmd FileType python     setlocal sw=4 sts=0 ts=4 et
 endif
 
 set nowrap
