@@ -79,7 +79,7 @@ if has('win32')
   endif
 elseif has('mac')
   set guifont=Cica:h14
-  set linespace=1
+  set linespace=2
 elseif has('xfontset')
   " UNIX用
   set guifontset=a14,r14,k14
