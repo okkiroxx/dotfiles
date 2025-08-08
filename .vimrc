@@ -71,14 +71,10 @@ call plug#begin('~/.vim/plugged')
     source ~/.vim/rc/plugins/lsp.rc.vim
 
 
-    if executable('pyenv')
-        Plug 'lambdalisue/vim-pyenv', { 'for': ['python', 'python3'] }
-    endif
+    Plug 'lambdalisue/vim-pyenv'
 
-    if has('gui_running')
-        Plug 'tyru/open-browser.vim'
-        Plug 'kannokanno/previm'
-    endif
+    Plug 'tyru/open-browser.vim'
+    Plug 'kannokanno/previm'
 
     Plug 'vim-jp/vimdoc-ja'
 
