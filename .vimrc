@@ -45,7 +45,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
     let g:gundo_prefer_python3 = 1
 
-    Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+    Plug 'preservim/vim-markdown', { 'for': 'markdown' }
+    let g:vim_markdown_folding_disabled = 1
+
+    Plug 'bullets-vim/bullets.vim', { 'for': 'markdown' }
+    let g:bullets_pad_right = 0
+    let g:bullets_outline_levels = []
 
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': 'NERDTreeToggle' }
