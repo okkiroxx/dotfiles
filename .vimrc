@@ -201,7 +201,6 @@ elseif has('unix')
     set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
 endif
 
-
 autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 "全角スペースの可視化
@@ -223,3 +222,10 @@ if has('vim_starting')
     let &t_SR .= "\e[4 q"
 endif
 
+autocmd InsertLeave * call IM_off()
+
+function! IM_off()
+    if has('unix')
+        call system('fcitx5-remote -c')
+    endif
+endfunction

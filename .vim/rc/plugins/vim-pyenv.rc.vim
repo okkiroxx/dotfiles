@@ -7,6 +7,7 @@ if jedi#init_python()
             let $PYTHONHOME = s:python2home
         elseif major_version == 3
             let $PYTHONHOME = s:python3home
+        endif
         call jedi#force_py_version(major_version)
     endfunction
     augroup vim-pyenv-custom-augroup
