@@ -222,12 +222,14 @@ if has('vim_starting')
     let &t_SR .= "\e[4 q"
 endif
 
-"挿入モードを抜けるときにIMEをOFF(linux)
+"挿入モードを抜けるときにIMEをOFF(MacはKarabinerで)
 autocmd InsertLeave * call IM_off()
 
 function! IM_off()
     if has('unix')
         call system('fcitx5-remote -c')
+    elseif has('win32') || has('win64')
+        call system('%HOMEPATH%\zenhan.exe 0')
     endif
 endfunction
 
