@@ -85,6 +85,21 @@ call plug#begin('~/.vim/plugged')
 
     Plug 'okkiroxx/rtx.vim'
 
+    Plug 'dominikduda/vim_current_word'
+    let g:vim_current_word#highlight_current_word = 0
+    let g:vim_current_word#highlight_delay = 500
+
+    Plug 'luochen1990/rainbow'
+    let g:rainbow_active = 1
+    let g:rainbow_conf = {
+        \'guifgs': ['orange', 'magenta', 'cyan'],
+        \'ctermfgs': ['yellow', 'magenta', 'cyan'],
+        \'guis': ['bold'], 'cterms': ['bold'],
+        \'separately': {
+        \   'nerdtree': 0,
+        \   'html': 0
+        \}
+    \}
 call plug#end()
 
 filetype plugin indent on
@@ -233,3 +248,6 @@ function! IM_off()
     endif
 endfunction
 
+"vim_current_wordプラグイン用
+hi CurrentWord ctermbg=53
+hi CurrentWordTwins ctermbg=237
