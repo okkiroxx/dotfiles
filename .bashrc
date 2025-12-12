@@ -125,6 +125,7 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # Created by `pipx` on 2025-08-30 04:52:47
 export PATH="$PATH:/home/okki/.local/bin"
 
+# manをlessで開く/カラー表示
 export MANPATH="$HOME/.local/share/man/ja_JP.UTF-8:$MANPATH"
 export MANPAGER=less
 export LESS='-i -M -R'
