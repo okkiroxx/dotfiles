@@ -216,18 +216,19 @@ elseif has('unix')
     set fileencodings=utf-8,cp932,sjis,euc-jp,latin1
 endif
 
-autocmd vimenter,colorscheme * highlight normal ctermbg=none
 
 "全角スペースの可視化
 autocmd vimenter,winenter * let w:m_tbs = matchadd("error", '　')
 
-
+"カラースキーム
+autocmd vimenter,colorscheme * highlight normal ctermbg=none
 colorscheme railscasts
 syntax enable
 
+"nerdtreeのアイコン
 let g:webdevicons_enable_nerdtree = 1
 
-
+"カーソル
 if has('vim_starting')
     " 挿入モード時に点滅の縦棒タイプのカーソル
     let &t_SI .= "\e[5 q"
