@@ -251,3 +251,11 @@ endfunction
 "vim_current_wordプラグイン用
 hi CurrentWord ctermbg=53
 hi CurrentWordTwins ctermbg=237
+
+"最後のカーソル位置を復元する
+    if has("autocmd")
+        autocmd BufReadPost *
+        \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+        \   exe "normal! g'\"" |
+        \ endif
+    endif
