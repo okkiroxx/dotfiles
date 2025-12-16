@@ -151,3 +151,7 @@ export GIT_PS1_SHOWCOLORHINTS=yes
 export GIT_PS1_SHOWCONFLICTSTATE=yes
 export GIT_PS1_HIDE_IF_PWD_IGNORED=yes
 
+#Zed用
+export GTK_IM_MODULE=fcitx5
+export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
