@@ -161,7 +161,7 @@ set backup
 set virtualedit=block
 set mouse=a
 set history=1000
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,autoselect
 set tags=../tags,./tags,tags
 
 set helplang=ja
