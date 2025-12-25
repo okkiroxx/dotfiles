@@ -84,7 +84,7 @@ elseif has('xfontset')
   " UNIX用
   set guifontset=a14,r14,k14
 elseif has('unix')
-  set guifont=Hack\ 10
+  set guifont=Cica\ 12
 endif
 
 
